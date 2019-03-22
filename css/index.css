@@ -1,18 +1,13 @@
 body{
-
 	margin:0;
-	background: #eee;
-
+	background: #ddd;
 	font-family: sans-serif;
 	font-size: 22px;
 	font-weight: 100;
 	line-height: 30px;
-
 	min-width:1040px;
 	background-repeat: no-repeat;
-
 	overflow-x:hidden;
-
 }
 
 a{
@@ -42,9 +37,22 @@ a:hover{
 	border: none;
 }
 
+
 .chapter{
 	margin: 50px auto;
 	width:800px;
+}
+.chapter_wide{
+	text-align:center;
+	margin: 50px auto;
+	color: #222;
+	background: #FFF;
+}
+.chapter_narrow{
+	margin: 50px auto;
+	width:800px;
+	color: #000;
+	background: #ddd;
 }
 .playable{
 	width: 100%;
@@ -75,7 +83,9 @@ iframe[embedded]{
 }
 
 .instruction{
-	text-align:center; font-weight:bold; font-size:25px
+	text-align:center;
+	font-weight:bold;
+	font-size:25px
 }
 
 /**
@@ -108,11 +118,11 @@ span[cartoon]:hover{
 
 }
 #cartoon_arrow{
-	
+
 	display: block;
 
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-bottom: 20px solid #fff;
@@ -123,11 +133,11 @@ span[cartoon]:hover{
 
 }
 #cartoon_arrow[flipped=true]{
-	
+
 	display: block;
 
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-bottom: 20px solid #fff;
