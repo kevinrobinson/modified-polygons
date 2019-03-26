@@ -99,6 +99,10 @@
   		</table>
 		</form>
 
+	    <div class="MeetShapesDataset">
+	     	<button class="MeetShapesDataset-create-dataset">New dataset</button>
+	     	<div class="MeetShapesDataset-dataset-preview" />
+	    </div>
 	</div>
 
 <!-- CHAPTER -->
@@ -612,8 +616,13 @@
 
 </body>
 
+<script src="js/lodash.js"></script>
 <script src="js/Mouse.js"></script>
 <script src="js/intro.js"></script>
 <script src="js/display_random.js"></script>
+<script src="js/datasets.js"></script>
+<script>
+ 	datasets.init(document.querySelector('.MeetShapesDataset'));
+</script>
 
 </html>

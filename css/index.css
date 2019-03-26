@@ -147,3 +147,22 @@ span[cartoon]:hover{
 	left:140px;
 
 }
+
+
+.MeetShapesDataset pre {
+	font-size: 10px;
+}
+
+.MeetShapesDataset-data-points-container {
+
+}
+
+.MeetShapesDataset-data-point {
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.MeetShapesDataset-tiny {
+	font-size: 10px;
+	line-height: 1.2em;
+}
