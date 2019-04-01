@@ -17,7 +17,13 @@
     'sad',
     'yay'
   ];
-  
+
+  var camps = [
+    'outdoor',
+    'music',
+    'math'
+  ];
+
 
   // Generate a data set
   function create(options) {
@@ -28,6 +34,7 @@
         color: _.sample(colors),
         shape: _.sample(shapes),
         feeling: _.sample(feelings),
+        assignedCamp: _.sample(camps),
         music: {
           interest: _.random(0, 10),
           experience: _.random(0, 10)
@@ -52,19 +59,26 @@
     return `play/img/${dataPoint.color}_${dataPoint.shape}_${feeling}.png`;
   }
 
-  function toTensor(dataset) {
+  function toX(dataset) { // TODO: change to be vectorized 
     return dataset.map(function(dataPoint) {
-      return [
-        colors.indexOf(dataPoint.color),
-        shapes.indexOf(dataPoint.shape),
-        feelings.indexOf(dataPoint.feeling),
-        dataPoint.music.interest,
-        dataPoint.music.experience,
-        dataPoint.math.interest,
-        dataPoint.math.experience,
-        dataPoint.outdoors.interest,
-        dataPoint.outdoors.experience
-      ];
+      // return [
+      //   colors.indexOf(dataPoint.color),
+      //   shapes.indexOf(dataPoint.shape),
+      //   feelings.indexOf(dataPoint.feeling),
+      //   dataPoint.music.interest,
+      //   dataPoint.music.experience,
+      //   dataPoint.math.interest,
+      //   dataPoint.math.experience,
+      //   dataPoint.outdoors.interest,
+      //   dataPoint.outdoors.experience
+      // ];
+      return colors.indexOf(dataPoint.color);
+    });
+  }
+
+  function toY(dataset) {
+    return dataset.map(function(dataPoint) {
+      return camps.indexOf(dataPoint.assignedCamp);
     });
   }
 
@@ -90,10 +104,12 @@
         ${dataset.map(renderDataPoint).join('')}
       </div>`;
       previewEl.innerHTML = html;
-      console.log('dataset', toTensor(dataset));
+      // console.log('dataset', toTensor(dataset));
+      window.lastX = toX(dataset);
+      window.lastY = toY(dataset);
     })
   };
-  
+
   window.datasets = {
     init: init
   };
