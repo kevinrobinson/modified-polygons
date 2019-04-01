@@ -224,14 +224,12 @@ span[cartoon]:hover{
 
 .TrainingAnimation-black-box-innards {
 	font-size: 10px;
-	color: white;
+	color: #ccc;
   position: absolute;
-  bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
   bottom: 10px;
-  white-space: pre;
 }
 
 .TrainingAnimation-gauge {

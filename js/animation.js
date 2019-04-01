@@ -58,7 +58,7 @@
   }
 
   function createFakeModelWeights() {
-    return `model weights: [${_.range(0, 10).map(i => Math.random().toFixed(3)).join(' ')}]`;
+    return `adjusting model... [${_.range(0, 8).map(i => Math.random().toFixed(3)).join(' ')}]`;
   }
 
   window.animation = {
