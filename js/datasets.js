@@ -52,6 +52,21 @@
     return `play/img/${dataPoint.color}_${dataPoint.shape}_${feeling}.png`;
   }
 
+  function toTensor(dataset) {
+    return dataset.map(function(dataPoint) {
+      return [
+        colors.indexOf(dataPoint.color),
+        shapes.indexOf(dataPoint.shape),
+        feelings.indexOf(dataPoint.feeling),
+        dataPoint.music.interest,
+        dataPoint.music.experience,
+        dataPoint.math.interest,
+        dataPoint.math.experience,
+        dataPoint.outdoors.interest,
+        dataPoint.outdoors.experience
+      ];
+    });
+  }
 
   // Render a data point as HTML
   function renderDataPoint(dataPoint) {
@@ -75,6 +90,7 @@
         ${dataset.map(renderDataPoint).join('')}
       </div>`;
       previewEl.innerHTML = html;
+      console.log('dataset', toTensor(dataset));
     })
   };
   
