@@ -1,6 +1,4 @@
 
-
-
 function train() { // todo change to train all at once
 
     // const trainX = [3.3, 4.4, 5.5, 6.71, 6.93, 4.168, 9.779, 6.182, 7.59, 2.167, 7.042, 10.791, 5.313, 7.997, 5.654, 9.27, 3.1];
@@ -54,6 +52,10 @@ function train() { // todo change to train all at once
         });
     }
 
+    // Kevin: not sure this is the right way to kick off animation,
+    // we can rework this if the training changes.
+    window.animation.animate(window.lastDataset);
+    
     plot();
     }
 

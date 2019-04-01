@@ -94,23 +94,29 @@
     </div>`;
   }
 
+  function onClick(el) {
+    var dataset = create();
+
+    var previewEl = el.querySelector('.MeetShapesDataset-dataset-preview');
+    var html = `<div class="MeetShapesDataset-data-points-container">
+      ${dataset.map(renderDataPoint).join('')}
+    </div>`;
+    previewEl.innerHTML = html;
+
+    window.lastDataset = dataset;
+    window.lastX = toX(dataset);
+    window.lastY = toY(dataset);
+  }
+
   // Add handler for "New dataset"
   function init(el) {
     var buttonEl = el.querySelector('.MeetShapesDataset-create-dataset');
-    var previewEl = el.querySelector('.MeetShapesDataset-dataset-preview');
-    buttonEl.addEventListener('click', function() {
-      var dataset = create();
-      var html = `<div class="MeetShapesDataset-data-points-container">
-        ${dataset.map(renderDataPoint).join('')}
-      </div>`;
-      previewEl.innerHTML = html;
-      // console.log('dataset', toTensor(dataset));
-      window.lastX = toX(dataset);
-      window.lastY = toY(dataset);
-    })
+    buttonEl.addEventListener('click', onClick.bind(null, el));
+    onClick(el);
   };
 
   window.datasets = {
-    init: init
+    init: init,
+    imageUrlForDataPoint: imageUrlForDataPoint
   };
 })();
