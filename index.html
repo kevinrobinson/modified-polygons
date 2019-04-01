@@ -142,6 +142,12 @@
 	</div>
 
 	<!-- CHAPTER -->
+	<div style="width:400px;">
+	    <canvas id="myChart" width="400" height="400"></canvas>
+	</div>
+
+	<button onclick="train()">Train the model 1 step</button>
+
 	<div class="chapter_narrow">
 		<p>
 		Great! We can use the historical dataset to train the algorithm!
@@ -616,11 +622,14 @@
 
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.7"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <script src="js/lodash.js"></script>
 <script src="js/Mouse.js"></script>
 <script src="js/intro.js"></script>
 <script src="js/display_random.js"></script>
 <script src="js/datasets.js"></script>
+<script src="js/linreg.js"></script>
 <script>
  	datasets.init(document.querySelector('.MeetShapesDataset'));
 </script>
