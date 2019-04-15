@@ -54,11 +54,22 @@ function train() { // todo change to train all at once
 
     // Kevin: not sure this is the right way to kick off animation,
     // we can rework this if the training changes.
-    window.animation.animate(window.lastDataset);
-    
+    window.Animation.animate(window.lastDataset);
+
     plot();
-    }
+}
 
 // const predictionsBefore = predict(tf.tensor1d(trainX));
 
     // plot();
+
+
+function deploy() {
+  var newCityDataset = window.datasets.create().map(function(dataPoint){
+    return _.omit(dataPoint, ['assignedCamp'])
+  });
+  function fake_predict(dataPoint) {
+    return _.sample(window.datasets.constants.camps)
+  }
+  window.DeployAnimation.animate(newCityDataset, fake_predict);
+}

@@ -168,42 +168,44 @@ span[cartoon]:hover{
 
 .MeetShapesDataset-tiny {
 	font-size: 10px;
-	line-height: 1.2em;
+	line-height: 0.8em;
 }
 
-.TrainingAnimation {
+.Animation {
 	display: inline-block;
-	width: 800px;
-	height: 500px;
+	width: 1000px;
+	height: 600px;
 	background: lightblue;
 	position: relative;
 }
 
-.TrainingAnimation-box {
+.Animation-box {
 	position: absolute;
 }
 
-.TrainingAnimation-application {	
+.Animation-application {
 	border: 1px solid #333;
-	padding: 10px;
-	width: 220px;
+	padding: 5px;
+	width: 200px;
+	height: 220px;
+	font-size: 11pt;
 	background: #f8f8f8;
 	-webkit-box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
 	-moz-box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
 	box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
 }
 
-.TrainingAnimation-assigned {
+.Animation-assigned {
 	font-weight: bold;
-	margin-top: 40px;
+	margin-top: 5px;
 }
 
-.TrainingAnimation-black-box {
+.Animation-black-box {
 	background: black;
 	position: absolute;
-	top: 20px;
-	bottom: 20px;
-	right: 20px;
+	top: 50px;
+	bottom: 50px;
+	right: 300px;
 	width: 400px;
 	z-index: 1;
 
@@ -212,7 +214,7 @@ span[cartoon]:hover{
 	box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
 }
 
-.TrainingAnimation-black-box-title {
+.Animation-black-box-title {
 	font-size: 24px;
 	color: white;
 	font-weight: bold;
@@ -222,8 +224,8 @@ span[cartoon]:hover{
   right: 0;
 }
 
-.TrainingAnimation-black-box-innards {
-	font-size: 10px;
+.Animation-black-box-innards {
+	font-size: 12px;
 	color: #ccc;
   position: absolute;
   left: 0;
@@ -232,18 +234,28 @@ span[cartoon]:hover{
   bottom: 10px;
 }
 
-.TrainingAnimation-gauge {
-	width: 100%;
+.Animation-gauge {
+	display: inline-block;
+	width: 60%;
 	border: 1px solid #ccc;
-	height: 5px;
+	height: 4px;
 }
 
-.TrainingAnimation-gauge > div {
+.Animation-gauge > div {
 	background: blue;
 	height: 100%
+}
+
+.Evaluation-button {
+	padding: 10px;
 }
 
 .Evaluating {
 	display: flex;
 	justify-content: center;
+}
+
+.Vehicle {
+	left: -400px;
+	position: relative;
 }

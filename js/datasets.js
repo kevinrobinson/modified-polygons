@@ -59,7 +59,7 @@
     return `play/img/${dataPoint.color}_${dataPoint.shape}_${feeling}.png`;
   }
 
-  function toX(dataset) { // TODO: change to be vectorized 
+  function toX(dataset) { // TODO: change to be vectorized
     return dataset.map(function(dataPoint) {
       // return [
       //   colors.indexOf(dataPoint.color),
@@ -117,6 +117,7 @@
 
   window.datasets = {
     init: init,
+    create: create,
     constants: {
       colors: colors,
       shapes: shapes,
