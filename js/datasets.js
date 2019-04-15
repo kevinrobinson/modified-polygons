@@ -117,6 +117,12 @@
 
   window.datasets = {
     init: init,
+    constants: {
+      colors: colors,
+      shapes: shapes,
+      feelings: feelings,
+      camps: camps
+    },
     imageUrlForDataPoint: imageUrlForDataPoint
   };
 })();

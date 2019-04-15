@@ -242,3 +242,8 @@ span[cartoon]:hover{
 	background: blue;
 	height: 100%
 }
+
+.Evaluating {
+	display: flex;
+	justify-content: center;
+}
