@@ -55,7 +55,7 @@
 		</p>
 		<img src="play/img/land.png"/>
 		<p>
-			Polynomia is home to a variety of shapes.
+			Polynomia is home to a variety of shapes. Meet some random shapes here:
 		</p>
 		<img src="play/img/green_square_yay.png"/>
 		<img src="play/img/liblue_triangle_yay_blink.png"/>
@@ -63,84 +63,82 @@
 		<img src="play/img/pink_square_meh.png"/>
 		<img src="play/img/blue_triangle_sad.png"/>
 
+		<!--
+		<form name="imageForm1">
+			<table>
+			<tr>
+				<td>
+				<input onclick="displayRandomHappy();" type=button value="Display Random Happy Shape">
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img src="play/img/liblue_triangle_yay.png" name="canvas" />
+				</td>
+			</tr>
+			</table>
+		</form>
+		-->
 	</div>
 
 	<!-- CHAPTER -->
 	<div class="chapter_narrow">
 
 		<p>
-			Some of these shapes go to school, and during the summers they like to go to summer camp. There are three popular camps in Polynomia: music camp, math camp, and outdoor camp.
+			The shapes go to school, and during the summers they like to go to camp.
+			<br>
+			<br>
+			There are three popular summer camps in Polynomia: music camp, math camp, and outdoor camp.
 		</p>
-		<img src="play/img/green_square_yay.png"/>
-		<img src="play/img/yay_triangle.png"/>
-		<br>
 		<img src="play/img/campfire.png"/>
 		<img src="play/img/sixteenth_notes.png"/>
 		<img src="play/img/math.png"/>
-
-	</div>
-
-	<!-- CHAPTER -->
-	<div class="chapter_wide">
 		<p>
-			Meet some random shapes here:
+			In the past, only shapes from City1 went to camp because City1 sponsored it.
+			<br>
+			<br>
+			This year, camps will be open to all shapes in Polynomia for the first time! YAY
+			TODO: yay animation?
 		</p>
 
-		<form name="imageForm1">
-  		<table>
-  		<tr>
-    		<td>
-      	<input onclick="displayRandomHappy();" type=button value="Display Random Happy Shape">
-    		</td>
-  		</tr>
-  		<tr>
-    		<td>
-      	<img src="play/img/liblue_triangle_yay.png" name="canvas" />
-    		</td>
-  		</tr>
-  		</table>
-		</form>
-
-	    <div class="MeetShapesDataset">
-	     	<button class="MeetShapesDataset-create-dataset">New dataset</button>
-	     	<div class="MeetShapesDataset-dataset-preview" />
-	    </div>
 	</div>
 
 <!-- CHAPTER -->
 	<div class="chapter_narrow">
 		<p>
-			The summer camps get hundreds of applications.
+			The summer camp directors are expecting to receive hundreds of applications.
+			<br>
+			<br>
 			To make ths process more efficient and fair,
 			the directors have decided to use an algorithm
-			to help make decisions about who gets to go to each camp.
+			to help make decisions about who goes to each camp.
 		</p>
 		<img src="play/img/application.png"/>
 		<img src="play/img/director.png"/>
-
-		<!--
-		<iframe id="mini_neighborhood" playable src="play/mini/mini_neighborhood.html" width="730" height="240" scrolling="no" style="margin:0 auto;display:block" embedded></iframe>
-		-->
+		<br>
 
 		<div class="instruction">
+			<br>
 			How do we train this algorithm to make decisions?
 		</div>
 	</div>
 
- 	<!--
-	<div class="playable">
-		<iframe playable src="play/manual/manual.html" width="550" height="650"></iframe>
-	</div>
-	-->
-
 	<!-- CHAPTER -->
 	<div class="chapter_wide">
 		<p>
+			<br>
 			There's a record of who has attended which camps in the past. We have a historical dataset.
 		</p>
+		<div class="MeetShapesDataset">
+			<button class="MeetShapesDataset-create-dataset">New dataset</button>
+			<div class="MeetShapesDataset-dataset-preview" />
+		</div>
 		<p>
-			Here are the features the algorithm considers.
-			The algorithm uses data from the past to train a model, tweaking it little by little.
+			These are the features the algorithm considers.
+			<br>
+			<br>
+			The algorithm uses the historical data to train a model, tweaking it little by little.
+			<br>
 			Once the model fits the data pretty well, the algorithm stops.
 		</p>
 	</div>
@@ -158,54 +156,56 @@
 		</p>
 		<div class="instruction">
 			<img src="play/img/play_icon.png"/ class="center" onclick="train()">
+			<img src="play/img/fastforward_icon.png"/>
 			<br>
 			Ready? GO! (press the button to train)
+			TODO: make lazy button work
 		</div>
-		<img src="play/img/fastforward_icon.png"/>
-		<br>
-		(here's a lazy button image)
 	</div>
 	<div class="TrainingAnimation"></div>
-	
+
 	<!-- CHAPTER -->
 	<div class="chapter_wide">
 		<p>
 		Awesome! Now we can deploy the model that the algorithm trained!
+		TODO: make different icon for play - deploy
 		</p>
+		<img src="play/img/play_icon.png"/ class="center" onclick="deploy()">
 		<p>
-		(picture of a black box?)
+		Notice the model sorting the shapes into what summer camp it thinks they should attend.
 		</p>
-		<p>
-		See how the model classifies the shapes in terms of what summer camp they should go to.
-		</p>
-		<div class="instruction">
-		How does the model do?
-		</div>
-	</div>
 
-	<!-- CHAPTER -->
-	<div class="chapter_narrow">
-		<p>
-		Okay, so let's see how this does in a different city.
-		Do you notice anything different about the shapes in this city?
-		</p>
+	</div>
+	<div class="DeployAnimation"></div>
+
+	<div class="instruction">
+	How does the model do?
 	</div>
 
 	<!-- CHAPTER -->
 	<div class="chapter_wide">
+		<img src="play/img/school_bus_shapes.png"/>
 		<p>
-			Looks like some of the shapes weren't too happy with the decisions produced.
-		</p>
-		<p>
+			TODO: zoomy school bus animation
+			<br>
+			The next day at school, some of the shapes aren't too happy with the decisions produced.
+			<br>
 			Why are some shapes sad?
+			<br>
+			<br>
+			Use the buttons below to visualize the results by attribute (color, shape, emotion).
 		</p>
+	</div>
+
+
+
+
+	<div class="instruction">
+		Let's see what this model decides in a different city.
 	</div>
 
 	<!-- CHAPTER -->
 	<div class="chapter_narrow">
-		<p>
-		(Some buttons to visualize the results by shape demographics)
-		</p>
 		<p>
 		Is there any pattern to the shapes the algorithm didn't work well for?
 		Why did this happen? Does this seem fair?
@@ -218,7 +218,6 @@
 	<!-- CHAPTER -->
 	<div class="chapter_wide">
 		<img src="play/img/school_bus.png"/>
-		<img src="play/img/school_bus_shapes.png"/>
 		<img src="play/img/camping.png"/>
 		<img src="play/img/canoe.png"/>
 		<p>
