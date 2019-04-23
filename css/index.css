@@ -1,6 +1,6 @@
 body{
 	margin:0;
-	background: #ddd;
+	background: #FFF;
 	font-family: sans-serif;
 	font-size: 22px;
 	font-weight: 100;
@@ -52,7 +52,7 @@ a:hover{
 	margin: 50px auto;
 	width:800px;
 	color: #000;
-	background: #ddd;
+	background: #FFF;
 }
 .playable{
 	width: 100%;

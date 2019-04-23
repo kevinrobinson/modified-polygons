@@ -15,12 +15,15 @@ function addAsset(name,src){
 }
 addAsset("mehTriangle","meh_triangle.png");
 addAsset("mehSquare","meh_square.png");
+addAsset("blinkTriangle","liblue_triangle_yay_blink.png");
+addAsset("yaySquare","green_square_yay_blink.png");
+addAsset("pinkSquare","pink_square_meh.png");
 
 
 function Swinger(){
-	
+
 	var self = this;
-	
+
 	self.swing = 0;
 	self.baseRotation = 0;
 
@@ -40,18 +43,38 @@ function Swinger(){
 	self.draw = function(ctx){
 
 		ctx.save();
-		
+
 		ctx.translate(self.x,self.y);
-		
+
 		ctx.translate(0,20);
 		ctx.rotate(self.baseRotation + Math.sin(self.swing)*Math.PI*0.05);
 		ctx.translate(0,-20);
 
 		var img;
-		if(self.x>640){
-			img = images.mehSquare;
+		if(self.x>50 && self.x<200){
+			if (Math.ceil(self.x)%2==0) {
+				img = images.mehTriangle;
+			} else {
+				img = images.mehSquare;
+			}
+		}else if(self.x>350 && self.x<800){
+			if (Math.ceil(self.x)%2==0) {
+				img = images.pinkSquare;
+			} else {
+				img = images.yaySquare;
+			}
+		}else if(self.x>850 && self.x<900){
+			if (Math.ceil(self.x)%2==0) {
+				img = images.pinkSquare;
+			} else {
+				img = images.yaySquare;
+			}
 		}else{
-			img = images.mehTriangle;
+			if (Math.ceil(self.x)%2==0) {
+				img = images.mehTriangle;
+			} else {
+				img = images.blinkTriangle;
+			}
 		}
 
 		ctx.drawImage(img,-30,-30,60,60);
@@ -120,7 +143,7 @@ swingers = swingers.sort(function(a,b){
 
 window.SCROLL = 0;
 function render(){
-	
+
 	if(assetsLeft>0 || window.SCROLL>550) return;
 
 	// Update
