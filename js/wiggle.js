@@ -44,7 +44,7 @@
         // var dist = Math.sqrt(dx*dx+dy*dy);
 
         if (self.feeling === 'sad') {
-          self.swing += 0.4;
+          self.swing += 0.5;
         } else if (self.feeling === 'meh') {
           self.swing += 0.05;
         } else if (self.feeling === 'yay') {
@@ -62,6 +62,10 @@
         ctx.translate(0,-20);
 
         ctx.drawImage(self.img,-30,-30,60,60);
+        // if (self.feeling === 'sad') {
+        //   ctx.font = '24px serif';
+        //   ctx.fillText('!#?$', -50, 10);
+        // }
         ctx.restore();
 
       };
@@ -128,7 +132,7 @@
       var xOffset = columnWidth * xIndex;
 
       s.x = 30 + columnWidth/2 + xOffset + Math.random()*60;
-      s.y = 30 + (240 - 120*Math.random());
+      s.y = (220 - 120*Math.random());
       s.swing = s.x*0.1 * (Math.random()*0.4);
       s.img = images[window.datasets.imageUrlForDataPoint(dataPoint)];
       s.feeling = dataPoint.feeling;
@@ -157,6 +161,17 @@
       for(var i=0;i<swingers.length;i++){
         swingers[i].draw(ctx);
       }
+      ctx.translate(0,0);
+      values.forEach(function(value, columnIndex) {
+        var columnWidth = ((1024 - 100)/values.length);
+        var xOffset = columnWidth * columnIndex;
+        var x = 60 + columnWidth/2 + xOffset;
+        ctx.font = '20px sans-serif';
+        ctx.fillStyle = '#333';
+        ctx.textAlign = 'center';
+        console.log('fillText', value, x);
+        ctx.fillText(value, x, 290);
+      });
       ctx.restore();
 
     }

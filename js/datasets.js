@@ -138,7 +138,7 @@
   function init(el) {
     var buttonEl = el.querySelector('.MeetShapesDataset-create-dataset');
     buttonEl.addEventListener('click', onClick.bind(null, el));
-    // onClick(el);
+    onClick(el);
   };
 
   window.datasets = {

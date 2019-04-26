@@ -291,7 +291,7 @@ span[cartoon]:hover{
 
 .Visualize-tool {
 	height: 350px;
-	padding-top: 30px;
+	padding-top: 20px;
 	background-color: #f8f8f8;
 }
 
@@ -308,4 +308,31 @@ span[cartoon]:hover{
 .Vehicle {
 	left: -400px;
 	position: relative;
+}
+
+
+.DiscussAndWrite {
+	margin-top: 40px;
+	padding: 10px;
+  background-color: #f0808045;
+  position: relative;
+  padding-top: 50px;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);
+	box-shadow: 2px 2px 5px 0px rgba(170,170,170,1);
+}
+
+.DiscussAndWrite:before {
+	content: '💬📝 Discuss and record';
+  font-weight: bold;
+  background-color: lightcoral;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.DiscussAndWrite > div {
+	padding: 10px;
 }
