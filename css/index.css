@@ -305,6 +305,16 @@ span[cartoon]:hover{
 	color: white;
 }
 
+.Visualize-facets-button {
+	/*padding: 0;*/
+	font-size: 20px;
+	/*border: 0;*/
+	/*background: none;*/
+	cursor: pointer;
+	/*color: blue;*/
+	padding: 10px;
+}
+
 .Vehicle {
 	left: -400px;
 	position: relative;

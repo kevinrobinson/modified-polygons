@@ -32,6 +32,12 @@
 	<link href="css/index.css" rel="stylesheet" type="text/css">
 	<link href="css/animate.css" rel="stylesheet" type="text/css">
 
+	<!-- polymer, for facets -->
+	<!-- load webcomponents bundle, which includes all the necessary polyfills -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.10/webcomponents-bundle.js"></script>
+  
+  <!-- load the element -->
+  <link rel="import" href="facets/facets-jupyter.html">
 </head>
 <body>
 
@@ -229,6 +235,10 @@
 				<canvas class="Evaluating-canvas" width="1024" height="350"></canvas>
 			</div>
 		</div>
+
+		<div class="Visualize-facets chapter_narrow">
+			<div>If you still have more questions, you can explore further with <button class="Visualize-facets-button">Facets Dive</button>, a tool made by people on the <a href="https://ai.google/research/teams/brain/pair" target="_blank" rel="noopener noreferrer">People + AI Research team (PAIR)</a>.</button>
+		</div>
 	</div>
 
 	<!-- CHAPTER -->
@@ -304,5 +314,32 @@ function busZoom(){
  	window.datasets.init(document.querySelector('.MeetShapesDataset'));
  	window.visualize(document.querySelector('.Visualize'), window.wiggle);
 </script>
+<script>
+	document.querySelector('.Visualize-facets-button').addEventListener('click', function(e) {
+		document.querySelector('.Visualize-facets').innerHTML = '<facets-dive width="800" height="600" color-by="feeling" />';
 
+		// flatten
+		var facetsData = window.lastDataset.map(function(dataPoint) {
+			return _.merge({}, dataPoint, {
+				mathInterest: dataPoint.math.interest,
+				musicInterest: dataPoint.music.interest,
+				outdoorsInterest: dataPoint.outdoors.interest,
+				mathExperience: dataPoint.math.experience,
+				musicExperience: dataPoint.music.experience,
+				outdoorsExperience: dataPoint.outdoors.experience
+			});
+		});
+
+		// config
+  	var facetsDiveEl = document.querySelector('facets-dive');
+  	
+  	
+  	// the order of these calls matters
+  	facetsDiveEl.data = facetsData;
+  	facetsDiveEl.hideInfoCard = true;
+  	facetsDiveEl.colorBy = 'feeling';
+  	facetsDiveEl.verticalFacet = 'shape';
+  	facetsDiveEl.horizontalFacet = 'color';
+	});
+</script>
 </html>
