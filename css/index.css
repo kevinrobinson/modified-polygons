@@ -153,22 +153,56 @@ span[cartoon]:hover{
 	font-size: 10px;
 }
 
+.MeetShapesDataset-dataset-preview {
+	height: 370px;
+	background: #eee;
+}
+
 .MeetShapesDataset-data-points-container {
 
 }
 
 .MeetShapesDataset-create-dataset {
-	padding: 10px;
+	padding: 20px;
+	font-size: 20px;
+	position: relative;
+	top: -30px;
 }
 
 .MeetShapesDataset-data-point {
 	display: inline-block;
-	margin-bottom: 20px;
+	/*animation: wiggle 1000ms infinite linear;*/
+	margin: 20px;
+	width: 300px;
 }
 
-.MeetShapesDataset-tiny {
+/*.MeetShapesDataset-tiny {
 	font-size: 10px;
 	line-height: 0.8em;
+}*/
+
+.speech-bubble {
+	position: relative;
+	background: #f8f8f8;
+	padding: 10px;
+	border: 1px solid #d8d8d8;
+	border-radius: .4em;
+	left: 30px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 30px solid transparent;
+	border-top-color: #e8e8e8;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -8.5px;
+	margin-bottom: -30px;
 }
 
 .Animation {
@@ -253,6 +287,22 @@ span[cartoon]:hover{
 .Evaluating {
 	display: flex;
 	justify-content: center;
+}
+
+.Visualize-tool {
+	height: 350px;
+	padding-top: 30px;
+	background-color: #f8f8f8;
+}
+
+.Visualize-button {
+	padding: 10px;
+	font-size: 20px;
+}
+
+.Visualize-selected {
+	background: darkblue;
+	color: white;
 }
 
 .Vehicle {

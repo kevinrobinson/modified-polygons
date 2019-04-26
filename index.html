@@ -30,6 +30,7 @@
 
 	<!-- CSS -->
 	<link href="css/index.css" rel="stylesheet" type="text/css">
+	<link href="css/animate.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -131,9 +132,8 @@
 			There's a record of who has attended which camps in the past. We have a historical dataset.
 		</p>
 		<div class="MeetShapesDataset">
-			<button class="MeetShapesDataset-create-dataset">New dataset</button>
-			<br><br>
-			<div class="MeetShapesDataset-dataset-preview" />
+			<div class="MeetShapesDataset-dataset-preview"></div>
+			<button class="MeetShapesDataset-create-dataset">Meet a few shapes excited for summer!</button>
 		</div>
 		<p>
 			These are the features the algorithm considers.
@@ -194,7 +194,7 @@
 
 	<img src="play/img/school_bus_shapes.png" class="Vehicle" onclick="busZoom()"/>
 	<!-- CHAPTER -->
-	<div class="chapter_wide">
+	<div class="chapter_wide Visualize">
 		<p>
 			The next day at school, some of the shapes aren't too happy with the decisions produced.
 			<br>
@@ -203,12 +203,14 @@
 			Use the buttons below to visualize the results in a few different ways.
 			<br><br>
 		</p>
-		<button class="Evaluation-button">By Shape</button>
-		<button class="Evaluation-button">By Color</button>
-		<button class="Evaluation-button">By Camp</button>
-		<button class="Evaluation-button">By Emotion</button>
-		<div class="Evaluating">
-			<canvas class="Evaluating-canvas" width="1024" height="300"></canvas>
+		<div class="Visualize-tool">
+			<button class="Visualize-button Visualize-by-shape">By Shape</button>
+			<button class="Visualize-button Visualize-by-color">By Color</button>
+			<button class="Visualize-button Visualize-by-camp">By Camp</button>
+			<button class="Visualize-button Visualize-by-feeling">By Emotion</button>
+			<div class="Evaluating">
+				<canvas class="Evaluating-canvas" width="1024" height="300"></canvas>
+			</div>
 		</div>
 	</div>
 
@@ -275,6 +277,7 @@
 <script src="js/deploy_animation.js"></script>
 <script src="js/velocity.min.js"></script>
 <script src="js/wiggle.js"></script>
+<script src="js/visualize.js"></script>
 <script>
 function busZoom(){
 	var el = document.querySelector('.Vehicle')
@@ -282,8 +285,8 @@ function busZoom(){
 	Velocity(el, { opacity: 0 }, { visibility: "hidden" }); //alternatively, display: "none" to disappear el
 } </script>
 <script>
- 	datasets.init(document.querySelector('.MeetShapesDataset'));
- 	wiggle(document.querySelector('.Evaluating-canvas'), window.lastDataset);
+ 	window.datasets.init(document.querySelector('.MeetShapesDataset'));
+ 	window.visualize(document.querySelector('.Visualize'), window.wiggle);
 </script>
 
 </html>

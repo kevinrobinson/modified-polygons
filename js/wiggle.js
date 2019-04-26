@@ -1,6 +1,8 @@
 (function() {
-  window.wiggle = function(canvas, dataset) {
+  window.wiggle = function(canvas, dataset, options) {
     var ctx = canvas.getContext("2d");
+    var values = options.values;
+    var valueFn = options.valueFn;
 
     var assetsLeft = 0;
     var onImageLoaded = function(){
@@ -120,8 +122,8 @@
 
     var swingers = dataset.map(function(dataPoint, index) {
       var s = new Swinger();
-      var xIndex = window.datasets.constants.colors.indexOf(dataPoint.color);
-      var columns = window.datasets.constants.colors.length;
+      var xIndex = values.indexOf(valueFn(dataPoint));
+      var columns = values.length;
       var columnWidth = ((1024 - 100)/columns);
       var xOffset = columnWidth * xIndex;
 
