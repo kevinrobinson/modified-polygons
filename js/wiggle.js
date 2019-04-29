@@ -169,7 +169,7 @@
         ctx.font = '20px sans-serif';
         ctx.fillStyle = '#333';
         ctx.textAlign = 'center';
-        console.log('fillText', value, x);
+        // console.log('fillText', value, x);
         ctx.fillText(value, x, 290);
       });
       ctx.restore();
