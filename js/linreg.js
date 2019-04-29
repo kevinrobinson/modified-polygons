@@ -3,8 +3,9 @@ function train() { // todo change to train all at once
 
     // const trainX = [3.3, 4.4, 5.5, 6.71, 6.93, 4.168, 9.779, 6.182, 7.59, 2.167, 7.042, 10.791, 5.313, 7.997, 5.654, 9.27, 3.1];
     // const trainY = [1.7, 2.76, 2.09, 3.19, 1.694, 1.573, 3.366, 2.596, 2.53, 1.221, 2.827, 3.465, 1.65, 2.904, 2.42, 2.94, 1.3];
-    const trainX = window.lastX
-    const trainY = window.lastY
+    const trainX = window.lastX;
+    const trainY = window.lastY;
+    const xSize = trainX.lengthl
     const m = tf.variable(tf.scalar(Math.random()));
     const b = tf.variable(tf.scalar(Math.random()));
 

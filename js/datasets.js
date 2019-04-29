@@ -65,24 +65,28 @@
 
   function toX(dataset) { // TODO: change to be vectorized
     return dataset.map(function(dataPoint) {
-      // return [
-      //   colors.indexOf(dataPoint.color),
-      //   shapes.indexOf(dataPoint.shape),
-      //   feelings.indexOf(dataPoint.feeling),
-      //   dataPoint.music.interest,
-      //   dataPoint.music.experience,
-      //   dataPoint.math.interest,
-      //   dataPoint.math.experience,
-      //   dataPoint.outdoors.interest,
-      //   dataPoint.outdoors.experience
-      // ];
-      return colors.indexOf(dataPoint.color);
+      return [
+        colors.indexOf(dataPoint.color),
+        shapes.indexOf(dataPoint.shape),
+        feelings.indexOf(dataPoint.feeling),
+        dataPoint.music.interest,
+        dataPoint.music.experience,
+        dataPoint.math.interest,
+        dataPoint.math.experience,
+        dataPoint.outdoors.interest,
+        dataPoint.outdoors.experience
+      ];
+      // return colors.indexOf(dataPoint.color);
     });
+  }
+
+  function oneHot(labelIndex, classLength) {
+    return tf.tidy(() => tf.oneHot(tf.tensor1d([labelIndex]).toInt(), classLength));
   }
 
   function toY(dataset) {
     return dataset.map(function(dataPoint) {
-      return camps.indexOf(dataPoint.assignedCamp);
+      return tf.oneHot(camps.indexOf(dataPoint.assignedCamp), 3).arraySync()
     });
   }
 
