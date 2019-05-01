@@ -200,7 +200,7 @@
 		Awesome! Now we can deploy the model that the algorithm trained!
 		TODO: make different icon for play - deploy
 		</p>
-		<img src="play/img/play_icon.png"/ class="center" onclick="deploy()">
+		<img src="play/img/play_icon.png"/ class="DeployFirstCity-button center">
 		<p>
 		Notice the model sorting the shapes into what summer camp it thinks they should attend.
 		</p>
@@ -331,14 +331,15 @@
  		meetShapesEl: document.querySelector('.MeetShapesDataset')
  	});
  	TRAINING.init(game, {
-		trainButtonEl: document.querySelector('.Train-button')
+		trainButtonEl: document.querySelector('.Train-button'),
+		predictFirstCityButtonEl: document.querySelector('.DeployFirstCity-button')
 	});
  	VISUALIZE.init(game, document.querySelector('.Visualize'));
 	FACETS.init(game, {
 		buttonEl: document.querySelector('.Visualize-facets-button'),
 		containerEl: document.querySelector('.Visualize-facets')
 	});
-	
+
 	function busZoom() {
 		var el = document.querySelector('.Vehicle')
 		Velocity(el, { left: 800 }, 3000, "swing"); //move right

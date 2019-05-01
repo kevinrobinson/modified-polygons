@@ -32,8 +32,9 @@
   function startAnimation(containerEl, dataset) {
     // feed in applications
     var timings = {
-      newEvery: 800,
-      slideRight: 600
+      newEvery: 1000,
+      fallIn: 400,
+      slideRight: 500
     };
     var shuffledDataset = _.shuffle(dataset);
     _.range(0, dataset.length).forEach(function(n) {
@@ -63,7 +64,7 @@
     Velocity(el, {
       left: 40 + Math.random() * 40,
       top: 70 + Math.random() * 80
-    }, [400, 25]); //fall into place
+    }, [timings.fallIn, 25]); //fall into place
     Velocity(el, { left: 450 }, { duration: timings.slideRight }); //move right
     return el;
   }

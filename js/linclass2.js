@@ -31,7 +31,7 @@
     const trainY = tf.tensor(DATASETS.toY(trainData));     // Must be shape [num_examples, 3] (one-hot)
 
     // Start the animation
-    const {onTrainingDone} = TRAINING_ANIMATION.animate(trainData, 1000);
+    const {onTrainingDone} = TRAINING_ANIMATION.animate(trainData, 1500);
 
     // Start training after delay, so animation rendering can start
     setTimeout(function() {
@@ -51,10 +51,8 @@
   }
 
   // In deployment, make a new prediction
-  // TODO: when deployment is clicked, create this dataset and predict
-  function predict() {
-    const testX = null;  // TODO
-    // const testY = null;  // TODO
+  function predict(dataset) {
+    const testX = tf.tensor(DATASETS.toX(dataset));
     const prediction = model.predict(testX);
     prediction.print();
     console.log(prediction);
@@ -62,6 +60,12 @@
 
   function init(game, options = {}) {
     options.trainButtonEl.addEventListener('click', onTrainClick.bind(null, game));
+    options.predictFirstCityButtonEl.addEventListener('click', onDeployFirstCityClick.bind(null, game));
+  }
+
+  function onDeployFirstCityClick(game) {
+    predict(game.firstCityDataset);
+    // need animation and UI feedback
   }
 
   window.TRAINING = {
