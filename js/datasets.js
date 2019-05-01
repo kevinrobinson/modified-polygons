@@ -97,8 +97,23 @@
     });
   }
 
-  // Render a data point as HTML
-  function renderDataPoint(dataPoint) {
+  // an application, completed or not
+  function renderApplicationHtml(dataPoint, options = {}) {
+    var imageUrl = imageUrlForDataPoint(dataPoint);
+    var assignedCampHtml = (dataPoint.assignedCamp)
+      ? `<div class="Animation-assigned">went to ${dataPoint.assignedCamp}</div>`
+      : '';
+    return `<div class="Animation-application ${options.className || ''}">
+      <div class="Animation-tiny"><img src="${imageUrl}" /></div>
+      <div class="Animation-tiny">math: <div class="Animation-gauge"><div style="width: ${dataPoint.math.interest*10}%"></div></div></div>
+      <div class="Animation-tiny">music: <div class="Animation-gauge"><div style="width: ${dataPoint.music.interest*10}%"></div></div></div>
+      <div class="Animation-tiny">outdoors: <div class="Animation-gauge"><div style="width: ${dataPoint.outdoors.interest*10}%"></div></div></div>
+      ${assignedCampHtml}
+    </div>`;
+  }
+
+  // a friendly shape!
+  function renderMeetShapeHtml(dataPoint) {
     var imageUrl = imageUrlForDataPoint(dataPoint, { feeling: 'yay' }); // always happy to start!
     var mostInterestedCampText = _.maxBy([
       { text: 'math', interest: dataPoint.math.interest },
@@ -131,23 +146,19 @@
     </div>`;
   }
 
-  function render(el, dataset) {
-    var previewEl = el.querySelector('.MeetShapesDataset-dataset-preview');
-    var html = `<div class="MeetShapesDataset-data-points-container">
-      ${dataset.slice(0, 3).map(renderDataPoint).join('')}
+  // initial render
+  function init(game, options) {
+    var dataset = game.historicalDataset;
+    var previewEl = options.historicalEl.querySelector('.HistoricalApplications-preview');
+    var html = `<div class="HistoricalApplications-container">
+      ${dataset.map(function(dataPoint) {
+        return renderApplicationHtml(dataPoint, { className: 'Application-stack'});
+      }).join('')}
     </div>`;
     previewEl.innerHTML = html;
-  }
-
-  // Add handler for "New dataset"
-  function init(game, el) {
-    // var buttonEl = el.querySelector('.MeetShapesDataset-create-dataset');
-    // buttonEl.addEventListener('click', onClick.bind(null, el));
-    // onClick(el);
-    render(el, game.historicalDataset);
   };
 
-  window.datasets = {
+  window.DATASETS = {
     init: init,
     create: create,
     exampleDatasets: exampleDatasets,
@@ -159,6 +170,8 @@
       feelings: feelings,
       camps: camps
     },
-    imageUrlForDataPoint: imageUrlForDataPoint
+    imageUrlForDataPoint: imageUrlForDataPoint,
+    renderApplicationHtml: renderApplicationHtml,
+    renderMeetShapeHtml: renderMeetShapeHtml
   };
 })();

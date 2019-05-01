@@ -142,10 +142,8 @@
 		<br><p>
 			There's a record of who has attended which camps in the past. We have a historical dataset.
 		</p>
-		<div class="MeetShapesDataset">
-			<div class="MeetShapesDataset-dataset-preview"></div>
-			<button class="MeetShapesDataset-create-dataset">Meet a few shapes excited for summer!</button>
-			<div class="chapter_narrow" style="color: red; width: 300px;">^^ Kevin: oops!  I put this ^ in the wrong spot and need to revise. it should be historical, and this set of "shapes excited for the summer" should be below, before training.</div>
+		<div class="HistoricalApplications">
+			<div class="HistoricalApplications-preview"></div>
 		</div>
 		<p>
 			These are the features the algorithm considers.
@@ -185,6 +183,18 @@
 	</div>
 
 	<!-- CHAPTER -->
+	<div class="chapter_narrow">
+		<p>
+		Okay!  Here are some triangles who are excited about the summer camp and sent in their applications.
+		</p>
+	</div>
+	<div class="chapter_wide">
+		<div class="MeetShapesDataset">
+			<div class="MeetShapesDataset-dataset-preview"></div>
+			<button class="MeetShapesDataset-create-dataset">Meet some more shapes excited for summer!</button>
+		</div>
+	</div>
+
 	<div class="chapter_wide">
 		<p>
 		Awesome! Now we can deploy the model that the algorithm trained!
@@ -306,7 +316,7 @@
 <script>
 	// global state
 	window.game = {
-		historicalDataset: window.datasets.exampleDatasets.one,
+		historicalDataset: DATASETS.exampleDatasets.one,
 		training: {
 			progress: [],
 			trainedModel: null,
@@ -315,7 +325,9 @@
 	};
 </script>
 <script>
- 	window.datasets.init(game, document.querySelector('.MeetShapesDataset'));
+ 	DATASETS.init(game, {
+ 		historicalEl: document.querySelector('.HistoricalApplications')
+ 	});
  	VISUALIZE(game, document.querySelector('.Visualize'));
 	FACETS.init(game, {
 		buttonEl: document.querySelector('.Visualize-facets-button'),

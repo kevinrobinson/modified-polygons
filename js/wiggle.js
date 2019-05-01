@@ -20,7 +20,7 @@
     // addAsset("mehSquare","play/img/yellow_square_yay.png");
 
     dataset.forEach(function(dataPoint) {
-      var img = window.datasets.imageUrlForDataPoint(dataPoint);
+      var img = DATASETS.imageUrlForDataPoint(dataPoint);
       addAsset(img, img);
     });
 
@@ -134,7 +134,7 @@
       s.x = 30 + columnWidth/2 + xOffset + Math.random()*60;
       s.y = (220 - 120*Math.random());
       s.swing = s.x*0.1 * (Math.random()*0.4);
-      s.img = images[window.datasets.imageUrlForDataPoint(dataPoint)];
+      s.img = images[DATASETS.imageUrlForDataPoint(dataPoint)];
       s.feeling = dataPoint.feeling;
       return s;
     }); 

@@ -39,7 +39,7 @@
     _.range(0, dataset.length).forEach(function(n) {
       var dataPoint = shuffledDataset[n];
       setTimeout(function() {
-        var html = renderDataPoint(dataPoint);
+        var html = DATASETS.renderApplicationHtml(dataPoint);
         containerEl.querySelector('.Animation-black-box-innards').innerHTML = createFakeModelWeights('adjusting model...'); //only for train
         var el = slideInApplication(containerEl, html, timings);
       }, n * timings.newEvery);
@@ -66,17 +66,6 @@
     }, [400, 25]); //fall into place
     Velocity(el, { left: 450 }, { duration: timings.slideRight }); //move right
     return el;
-  }
-
-  function renderDataPoint(dataPoint) {
-    var imageUrl = datasets.imageUrlForDataPoint(dataPoint);
-    return `<div class="Animation-application">
-      <div class="Animation-tiny"><img src="${imageUrl}" /></div>
-      <div class="Animation-tiny">math: <div class="Animation-gauge"><div style="width: ${dataPoint.math.interest*10}%"></div></div></div>
-      <div class="Animation-tiny">music: <div class="Animation-gauge"><div style="width: ${dataPoint.music.interest*10}%"></div></div></div>
-      <div class="Animation-tiny">outdoors: <div class="Animation-gauge"><div style="width: ${dataPoint.outdoors.interest*10}%"></div></div></div>
-      <div class="Animation-assigned">went to ${dataPoint.assignedCamp}</div>
-    </div>`;
   }
 
   function createFakeModelWeights(text) {

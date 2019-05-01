@@ -13,9 +13,9 @@
       });
     }
     
-    visualizeEl.querySelector('.Visualize-by-shape').addEventListener('click', onClick.bind(null, window.datasets.constants.shapes, 'shape'));
-    visualizeEl.querySelector('.Visualize-by-color').addEventListener('click', onClick.bind(null, window.datasets.constants.colors, 'color'));
-    visualizeEl.querySelector('.Visualize-by-camp').addEventListener('click', onClick.bind(null, window.datasets.constants.camps, 'assignedCamp'));
-    visualizeEl.querySelector('.Visualize-by-feeling').addEventListener('click', onClick.bind(null, window.datasets.constants.feelings, 'feeling'));
+    visualizeEl.querySelector('.Visualize-by-shape').addEventListener('click', onClick.bind(null, DATASETS.constants.shapes, 'shape'));
+    visualizeEl.querySelector('.Visualize-by-color').addEventListener('click', onClick.bind(null, DATASETS.constants.colors, 'color'));
+    visualizeEl.querySelector('.Visualize-by-camp').addEventListener('click', onClick.bind(null, DATASETS.constants.camps, 'assignedCamp'));
+    visualizeEl.querySelector('.Visualize-by-feeling').addEventListener('click', onClick.bind(null, DATASETS.constants.feelings, 'feeling'));
   }
 })();

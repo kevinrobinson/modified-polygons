@@ -27,8 +27,8 @@
     // TODO: when train button is clicked, these should be filled entirely (not just
     // one example)
     const trainData = game.historicalDataset;
-    const trainX = tf.tensor(window.datasets.toX(trainData));     // Must be shape [num_examples, 9]
-    const trainY = tf.tensor(window.datasets.toY(trainData));     // Must be shape [num_examples, 3] (one-hot)
+    const trainX = tf.tensor(DATASETS.toX(trainData));     // Must be shape [num_examples, 9]
+    const trainY = tf.tensor(DATASETS.toY(trainData));     // Must be shape [num_examples, 3] (one-hot)
 
     // Start the animation
     const {onTrainingDone} = TRAINING_ANIMATION.animate(trainData, 1000);
