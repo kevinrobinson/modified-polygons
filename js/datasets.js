@@ -82,7 +82,6 @@
         dataPoint.outdoors.interest,
         dataPoint.outdoors.experience
       ];
-      // return colors.indexOf(dataPoint.color);
     });
   }
 
@@ -132,29 +131,26 @@
     </div>`;
   }
 
-  function onClick(el) {
-    // var dataset = create();
-    var dataset = exampleDatasets.one;
-
+  function render(el, dataset) {
     var previewEl = el.querySelector('.MeetShapesDataset-dataset-preview');
     var html = `<div class="MeetShapesDataset-data-points-container">
       ${dataset.slice(0, 3).map(renderDataPoint).join('')}
     </div>`;
     previewEl.innerHTML = html;
-
-    window.lastDataset = dataset;
   }
 
   // Add handler for "New dataset"
-  function init(el) {
-    var buttonEl = el.querySelector('.MeetShapesDataset-create-dataset');
-    buttonEl.addEventListener('click', onClick.bind(null, el));
-    onClick(el);
+  function init(game, el) {
+    // var buttonEl = el.querySelector('.MeetShapesDataset-create-dataset');
+    // buttonEl.addEventListener('click', onClick.bind(null, el));
+    // onClick(el);
+    render(el, game.historicalDataset);
   };
 
   window.datasets = {
     init: init,
     create: create,
+    exampleDatasets: exampleDatasets,
     toX: toX,
     toY: toY,
     constants: {
