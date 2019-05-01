@@ -156,8 +156,17 @@
     </div>`;
   }
 
+  function onMeetShapes(dataset, el) {
+    el.querySelector('.MeetShapesDataset-dataset-preview').innerHTML = `
+      <div class="MeetShapesDataset-dataset-preview-container">
+        ${_.sampleSize(dataset, 3).map(renderMeetShapeHtml).join('')}
+      </div>
+    `;
+  }
+
   // initial render
   function init(game, options) {
+    // historical
     var dataset = game.historicalDataset;
     var previewEl = options.historicalEl.querySelector('.HistoricalApplications-preview');
     var html = `<div class="HistoricalApplications-container">
@@ -166,6 +175,10 @@
       }).join('')}
     </div>`;
     previewEl.innerHTML = html;
+
+    // first city
+    options.meetShapesEl.querySelector('button').addEventListener('click', onMeetShapes.bind(null, game.firstCityDataset, options.meetShapesEl));
+    onMeetShapes(game.firstCityDataset, options.meetShapesEl);
   };
 
   window.DATASETS = {
