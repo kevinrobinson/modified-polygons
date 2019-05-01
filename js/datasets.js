@@ -92,7 +92,9 @@
 
   function toY(dataset) {
     return dataset.map(function(dataPoint) {
-      return tf.oneHot(camps.indexOf(dataPoint.assignedCamp), 3).arraySync()
+      var labelIndex = camps.indexOf(dataPoint.assignedCamp);
+      var indexTensor = tf.tensor1d([labelIndex], 'int32')
+      return tf.oneHot(indexTensor, 3).arraySync()[0];
     });
   }
 
@@ -141,8 +143,6 @@
     previewEl.innerHTML = html;
 
     window.lastDataset = dataset;
-    window.lastX = toX(dataset);
-    window.lastY = toY(dataset);
   }
 
   // Add handler for "New dataset"
@@ -155,6 +155,8 @@
   window.datasets = {
     init: init,
     create: create,
+    toX: toX,
+    toY: toY,
     constants: {
       colors: colors,
       shapes: shapes,

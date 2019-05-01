@@ -23,9 +23,9 @@ function train() {
   // Get data
   // TODO: when train button is clicked, these should be filled entirely (not just
   // one example)
-  // const trainData = window.lastDataset
-  const trainX = tf.tensor(window.lastX)     // Must be shape [num_examples, 9]
-  const trainY = tf.tensor(window.lastY)     // Must be shape [num_examples, 3] (one-hot)
+  const trainData = window.lastDataset;
+  const trainX = tf.tensor(window.datasets.toX(trainData));     // Must be shape [num_examples, 9]
+  const trainY = tf.tensor(window.datasets.toY(trainData));     // Must be shape [num_examples, 3] (one-hot)
   console.log(trainX)
   console.log(trainY)
 
