@@ -1,5 +1,5 @@
 (function() {
-  window.wiggle = function(canvas, dataset, options) {
+  function start(canvas, dataset, options) {
     var ctx = canvas.getContext("2d");
     var values = options.values;
     var valueFn = options.valueFn;
@@ -188,4 +188,8 @@
       render();
     })();
   }
+
+  window.WIGGLE = {
+    start: start
+  };
 })();

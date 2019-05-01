@@ -1,5 +1,5 @@
 (function() {
-  function init(game, options = {}) {
+  function init(game, options) {
     options.buttonEl.addEventListener('click', function(e) {
       options.containerEl.innerHTML = '<facets-dive width="800" height="600" color-by="feeling" />';
 

@@ -1,13 +1,12 @@
 (function() {
-  window.VISUALIZE = function(game, visualizeEl, wiggleFn) {
-    var wiggleFn = window.wiggle;
+  window.VISUALIZE = function(game, visualizeEl) {
     var canvasEl = visualizeEl.querySelector('.Evaluating-canvas');
     
     function onClick(values, byKey, e) {
       visualizeEl.querySelectorAll('.Visualize-button').forEach(function(el) { el.classList.remove('Visualize-selected'); });
       e.target.classList.add('Visualize-selected');
       
-      wiggleFn(canvasEl, game.historicalDataset, {
+      WIGGLE.start(canvasEl, game.historicalDataset, {
         values: values,
         valueFn: function(d) { return d[byKey]; }
       });
