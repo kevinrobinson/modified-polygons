@@ -316,7 +316,8 @@
 <script>
 	// global state
 	window.game = {
-		historicalDataset: DATASETS.exampleDatasets.one,
+		historicalDataset: DATASETS.exampleDatasets.historicalOne,
+		firstCityDataset: DATASETS.exampleDatasets.unassignedCityOne,
 		training: {
 			progress: [],
 			trainedModel: null,
@@ -328,17 +329,18 @@
  	DATASETS.init(game, {
  		historicalEl: document.querySelector('.HistoricalApplications')
  	});
+ 	TRAINING.init(game, {
+		trainButtonEl: document.querySelector('.Train-button')
+	});
  	VISUALIZE(game, document.querySelector('.Visualize'));
 	FACETS.init(game, {
 		buttonEl: document.querySelector('.Visualize-facets-button'),
 		containerEl: document.querySelector('.Visualize-facets')
 	});
-	TRAINING.init(game, {
-		trainButtonEl: document.querySelector('.Train-button')
-	});
+
 	function busZoom() {
 		var el = document.querySelector('.Vehicle')
-		Velocity(el, { left: 450 }, 3000, "swing"); //move right
+		Velocity(el, { left: 800 }, 3000, "swing"); //move right
 		Velocity(el, { opacity: 0 }, { visibility: "hidden" }); //alternatively, display: "none" to disappear el
 	}
 </script>
