@@ -333,11 +333,12 @@
  	TRAINING.init(game, {
 		trainButtonEl: document.querySelector('.Train-button')
 	});
- 	VISUALIZE(game, document.querySelector('.Visualize'));
+ 	VISUALIZE.init(game, document.querySelector('.Visualize'));
 	FACETS.init(game, {
 		buttonEl: document.querySelector('.Visualize-facets-button'),
 		containerEl: document.querySelector('.Visualize-facets')
 	});
+	
 	function busZoom() {
 		var el = document.querySelector('.Vehicle')
 		Velocity(el, { left: 800 }, 3000, "swing"); //move right

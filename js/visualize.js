@@ -1,5 +1,5 @@
 (function() {
-  window.VISUALIZE = function(game, visualizeEl) {
+  function init(game, visualizeEl) {
     var canvasEl = visualizeEl.querySelector('.Evaluating-canvas');
     
     function onClick(values, byKey, e) {
@@ -17,4 +17,8 @@
     visualizeEl.querySelector('.Visualize-by-camp').addEventListener('click', onClick.bind(null, DATASETS.constants.camps, 'assignedCamp'));
     visualizeEl.querySelector('.Visualize-by-feeling').addEventListener('click', onClick.bind(null, DATASETS.constants.feelings, 'feeling'));
   }
+
+  window.VISUALIZE = {
+    init: init
+  };
 })();
