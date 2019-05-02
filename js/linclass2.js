@@ -4,13 +4,14 @@
 const model = tf.sequential({
   layers: [
     tf.layers.dense({inputShape: [9], units: 10, activation: 'relu'}),
+    tf.layers.dense({units: 10, activation: 'relu'}),
     tf.layers.dense({units: 3, activation: 'softmax'}),
   ]
 });
 
 model.compile({
   optimizer: 'sgd',
-  loss: 'meanSquaredError',
+  loss: 'categoricalCrossentropy',
   metrics: ['accuracy']
 });
 
@@ -30,7 +31,7 @@ function train() {
   console.log(trainY)
 
   model.fit(trainX, trainY, {
-    epochs: 20,
+    epochs: 50,
     batchSize: 16,
     callbacks: {onBatchEnd}
   }).then(info => {

@@ -29,7 +29,7 @@
 
   // Generate a data set
   function create(options) {
-    var n = (options && options.n) || 20;
+    var n = (options && options.n) || 100;
     return _.range(0, n).map(function(index) {
       return {
         id: _.uniqueId(),
@@ -86,7 +86,9 @@
 
   function toY(dataset) {
     return dataset.map(function(dataPoint) {
-      return tf.oneHot(camps.indexOf(dataPoint.assignedCamp), 3).arraySync()
+      // return tf.oneHot(tf.tensor1d([camps.indexOf(dataPoint.assignedCamp)], 'int32'), 3).arraySync()
+      var oneHotLabel = tf.oneHot(tf.tensor1d([camps.indexOf(dataPoint.assignedCamp)], 'int32'), 3)
+      return Array.from(oneHotLabel.dataSync())
     });
   }
 
