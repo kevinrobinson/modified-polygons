@@ -148,21 +148,39 @@ span[cartoon]:hover{
 
 }
 
-
-.MeetShapesDataset pre {
-	font-size: 10px;
+.HistoricalApplications-preview {
+	height: 370px;
+	background: #eee;
+	overflow-y: scroll;
+	box-shadow: inset 0 0 5px rgba(128,128,128,0.25);
+	border-top: 1px solid rgba(128,128,128,0.25);
+	border-bottom: 1px solid rgba(128,128,128,0.25);
 }
+
+.Application-stack {
+	margin: 20px;
+	display: inline-block;
+	transform: scale(1.0);
+  transition: all 100ms;
+  -webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+.Application-stack:hover {
+	transform: scale(1.1);
+	-webkit-box-shadow: 4px 4px 5px 0px rgba(128,128,128,1) !important;
+	-moz-box-shadow: 4px 4px 5px 0px rgba(128,128,128,1) !important;
+	box-shadow: 4px 4px 5px 0px rgba(128,128,128,1) !important;
+}
+
 
 .MeetShapesDataset-dataset-preview {
 	height: 370px;
 	background: #eee;
 }
 
-.MeetShapesDataset-data-points-container {
-
-}
-
 .MeetShapesDataset-create-dataset {
+	cursor: pointer;
 	padding: 20px;
 	font-size: 20px;
 	position: relative;
@@ -171,15 +189,9 @@ span[cartoon]:hover{
 
 .MeetShapesDataset-data-point {
 	display: inline-block;
-	/*animation: wiggle 1000ms infinite linear;*/
 	margin: 20px;
 	width: 300px;
 }
-
-/*.MeetShapesDataset-tiny {
-	font-size: 10px;
-	line-height: 0.8em;
-}*/
 
 .speech-bubble {
 	position: relative;
@@ -206,27 +218,53 @@ span[cartoon]:hover{
 }
 
 .Animation {
-	display: inline-block;
 	width: 1000px;
 	height: 600px;
 	background: lightblue;
 	position: relative;
+	display: inline-block;
+}
+
+.Animation-instructions-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.Animation-instructions {
+	background: #f8f8f8;
+	border-radius: 5px;
+	border: 1px solid #aaa;
+  width: 300px;
+  padding: 10px;
+  cursor: pointer;
+  transform: scale(1.0);
+  transition: all 200ms;
+  box-shadow: 0px;
+}
+.Animation-instructions:hover {
+	transform: scale(1.1);
+	box-shadow: 4px 4px 5px 0px rgba(128,128,128,1);
 }
 
 .Animation-box {
 	position: absolute;
 }
 
+
 .Animation-application {
-	border: 1px solid #333;
+	border: 1px solid #aaa;
+	border-radius: 3px;
 	padding: 5px;
 	width: 200px;
-	height: 220px;
+	height: 250px;
 	font-size: 11pt;
 	background: #f8f8f8;
-	-webkit-box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
-	-moz-box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
-	box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
+	-webkit-box-shadow: 4px 4px 5px 0px rgba(128,128,128,1);
+	-moz-box-shadow: 4px 4px 5px 0px rgba(128,128,128,1);
+	box-shadow: 4px 4px 5px 0px rgba(128,128,128,1);
 }
 
 .Animation-assigned {
@@ -243,9 +281,9 @@ span[cartoon]:hover{
 	width: 400px;
 	z-index: 1;
 
-	-webkit-box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
-	-moz-box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
-	box-shadow: 4px 4px 5px 0px rgba(102,102,102,1);
+	-webkit-box-shadow: 4px 4px 5px 0px rgba(128,128,128,1);
+	-moz-box-shadow: 4px 4px 5px 0px rgba(128,128,128,1);
+	box-shadow: 4px 4px 5px 0px rgba(128,128,128,1);
 }
 
 .Animation-black-box-title {
@@ -254,6 +292,15 @@ span[cartoon]:hover{
 	font-weight: bold;
 	position: absolute;
   top: 10px;
+  left: 0;
+  right: 0;
+}
+
+.Animation-black-box-done {
+	font-size: 16px;
+	color: white;
+	position: absolute;
+  top: 250px;
   left: 0;
   right: 0;
 }
@@ -316,7 +363,6 @@ span[cartoon]:hover{
 }
 
 .Vehicle {
-	left: -400px;
 	position: relative;
 }
 

@@ -1,5 +1,5 @@
 (function() {
-  window.wiggle = function(canvas, dataset, options) {
+  function start(canvas, dataset, options) {
     var ctx = canvas.getContext("2d");
     var values = options.values;
     var valueFn = options.valueFn;
@@ -20,7 +20,7 @@
     // addAsset("mehSquare","play/img/yellow_square_yay.png");
 
     dataset.forEach(function(dataPoint) {
-      var img = window.datasets.imageUrlForDataPoint(dataPoint);
+      var img = DATASETS.imageUrlForDataPoint(dataPoint);
       addAsset(img, img);
     });
 
@@ -134,7 +134,7 @@
       s.x = 30 + columnWidth/2 + xOffset + Math.random()*60;
       s.y = (220 - 120*Math.random());
       s.swing = s.x*0.1 * (Math.random()*0.4);
-      s.img = images[window.datasets.imageUrlForDataPoint(dataPoint)];
+      s.img = images[DATASETS.imageUrlForDataPoint(dataPoint)];
       s.feeling = dataPoint.feeling;
       return s;
     }); 
@@ -169,7 +169,7 @@
         ctx.font = '20px sans-serif';
         ctx.fillStyle = '#333';
         ctx.textAlign = 'center';
-        console.log('fillText', value, x);
+        // console.log('fillText', value, x);
         ctx.fillText(value, x, 290);
       });
       ctx.restore();
@@ -188,4 +188,8 @@
       render();
     })();
   }
+
+  window.WIGGLE = {
+    start: start
+  };
 })();

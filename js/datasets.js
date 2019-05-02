@@ -26,6 +26,22 @@
     'math'
   ];
 
+  // These are sampled from generated sets as ones that might
+  // make for interesting conversations.
+  //
+  // to log a new dataset:
+  //
+  // var d = create();
+  // d.forEach(function(i) { delete i.assignedCamp; });
+  // console.log(JSON.stringify(d));
+  var exampleDatasets = {
+    historicalOne: [{"id":"1","color":"pink","name":"Carson","shape":"triangle","feeling":"sad","assignedCamp":"outdoor","music":{"interest":0,"experience":9},"math":{"interest":6,"experience":10},"outdoors":{"interest":5,"experience":9}},{"id":"2","color":"yellow","name":"Isabella","shape":"triangle","feeling":"yay","assignedCamp":"math","music":{"interest":3,"experience":1},"math":{"interest":3,"experience":3},"outdoors":{"interest":8,"experience":7}},{"id":"3","color":"yellow","name":"Hailey","shape":"square","feeling":"meh","assignedCamp":"math","music":{"interest":4,"experience":6},"math":{"interest":10,"experience":10},"outdoors":{"interest":7,"experience":6}},{"id":"4","color":"blue","name":"Adam","shape":"square","feeling":"yay","assignedCamp":"outdoor","music":{"interest":1,"experience":3},"math":{"interest":10,"experience":1},"outdoors":{"interest":4,"experience":7}},{"id":"5","color":"yellow","name":"Gavin","shape":"square","feeling":"yay","assignedCamp":"music","music":{"interest":2,"experience":10},"math":{"interest":6,"experience":10},"outdoors":{"interest":6,"experience":2}},{"id":"6","color":"yellow","name":"Owen","shape":"triangle","feeling":"yay","assignedCamp":"music","music":{"interest":6,"experience":5},"math":{"interest":10,"experience":10},"outdoors":{"interest":3,"experience":10}},{"id":"7","color":"yellow","name":"Alexander","shape":"square","feeling":"yay","assignedCamp":"outdoor","music":{"interest":0,"experience":9},"math":{"interest":9,"experience":7},"outdoors":{"interest":5,"experience":1}},{"id":"8","color":"yellow","name":"Jaxson","shape":"square","feeling":"meh","assignedCamp":"outdoor","music":{"interest":3,"experience":0},"math":{"interest":10,"experience":4},"outdoors":{"interest":6,"experience":2}},{"id":"9","color":"pink","name":"Andrew","shape":"triangle","feeling":"meh","assignedCamp":"music","music":{"interest":10,"experience":5},"math":{"interest":6,"experience":2},"outdoors":{"interest":10,"experience":5}},{"id":"10","color":"pink","name":"Kayden","shape":"triangle","feeling":"sad","assignedCamp":"music","music":{"interest":4,"experience":0},"math":{"interest":4,"experience":10},"outdoors":{"interest":7,"experience":1}},{"id":"11","color":"liblue","name":"Madison","shape":"square","feeling":"yay","assignedCamp":"outdoor","music":{"interest":4,"experience":3},"math":{"interest":8,"experience":0},"outdoors":{"interest":1,"experience":1}},{"id":"12","color":"green","name":"Sawyer","shape":"triangle","feeling":"sad","assignedCamp":"music","music":{"interest":1,"experience":3},"math":{"interest":1,"experience":10},"outdoors":{"interest":2,"experience":3}},{"id":"13","color":"blue","name":"Nicholas","shape":"triangle","feeling":"meh","assignedCamp":"outdoor","music":{"interest":5,"experience":0},"math":{"interest":8,"experience":8},"outdoors":{"interest":1,"experience":5}},{"id":"14","color":"yellow","name":"Xavier","shape":"triangle","feeling":"yay","assignedCamp":"outdoor","music":{"interest":10,"experience":6},"math":{"interest":6,"experience":10},"outdoors":{"interest":5,"experience":7}},{"id":"15","color":"pink","name":"Cameron","shape":"triangle","feeling":"meh","assignedCamp":"music","music":{"interest":5,"experience":0},"math":{"interest":8,"experience":2},"outdoors":{"interest":3,"experience":5}},{"id":"16","color":"pink","name":"Carter","shape":"square","feeling":"sad","assignedCamp":"music","music":{"interest":4,"experience":10},"math":{"interest":9,"experience":4},"outdoors":{"interest":8,"experience":5}},{"id":"17","color":"pink","name":"Thomas","shape":"triangle","feeling":"yay","assignedCamp":"music","music":{"interest":6,"experience":0},"math":{"interest":6,"experience":10},"outdoors":{"interest":4,"experience":1}},{"id":"18","color":"green","name":"Eleanor","shape":"triangle","feeling":"sad","assignedCamp":"math","music":{"interest":5,"experience":8},"math":{"interest":2,"experience":0},"outdoors":{"interest":1,"experience":5}},{"id":"19","color":"yellow","name":"Gabriella","shape":"square","feeling":"sad","assignedCamp":"music","music":{"interest":0,"experience":6},"math":{"interest":1,"experience":3},"outdoors":{"interest":0,"experience":5}},{"id":"20","color":"blue","name":"Camila","shape":"triangle","feeling":"meh","assignedCamp":"music","music":{"interest":9,"experience":4},"math":{"interest":10,"experience":10},"outdoors":{"interest":5,"experience":3}}],
+    unassignedCityOne: [{"id":"1","color":"liblue","name":"Anthony","shape":"triangle","feeling":"yay","music":{"interest":7,"experience":1},"math":{"interest":0,"experience":8},"outdoors":{"interest":1,"experience":1}},{"id":"2","color":"liblue","name":"Christopher","shape":"triangle","feeling":"yay","music":{"interest":8,"experience":4},"math":{"interest":4,"experience":0},"outdoors":{"interest":7,"experience":10}},{"id":"3","color":"blue","name":"Andrew","shape":"triangle","feeling":"sad","music":{"interest":10,"experience":4},"math":{"interest":5,"experience":2},"outdoors":{"interest":7,"experience":3}},{"id":"4","color":"liblue","name":"Leonardo","shape":"triangle","feeling":"meh","music":{"interest":9,"experience":9},"math":{"interest":5,"experience":4},"outdoors":{"interest":10,"experience":3}},{"id":"5","color":"liblue","name":"Natalie","shape":"triangle","feeling":"meh","music":{"interest":5,"experience":10},"math":{"interest":10,"experience":7},"outdoors":{"interest":3,"experience":8}},{"id":"6","color":"liblue","name":"Ezra","shape":"triangle","feeling":"sad","music":{"interest":2,"experience":0},"math":{"interest":0,"experience":4},"outdoors":{"interest":4,"experience":3}},{"id":"7","color":"liblue","name":"Henry","shape":"triangle","feeling":"sad","music":{"interest":6,"experience":6},"math":{"interest":9,"experience":3},"outdoors":{"interest":7,"experience":9}},{"id":"8","color":"green","name":"Cameron","shape":"triangle","feeling":"meh","music":{"interest":5,"experience":6},"math":{"interest":0,"experience":4},"outdoors":{"interest":6,"experience":7}},{"id":"9","color":"pink","name":"Chloe","shape":"square","feeling":"meh","music":{"interest":2,"experience":0},"math":{"interest":1,"experience":1},"outdoors":{"interest":7,"experience":1}},{"id":"10","color":"liblue","name":"Ezra","shape":"triangle","feeling":"meh","music":{"interest":7,"experience":7},"math":{"interest":8,"experience":4},"outdoors":{"interest":4,"experience":10}},{"id":"11","color":"yellow","name":"Nolan","shape":"triangle","feeling":"yay","music":{"interest":1,"experience":6},"math":{"interest":2,"experience":7},"outdoors":{"interest":6,"experience":1}},{"id":"12","color":"green","name":"Lucy","shape":"square","feeling":"yay","music":{"interest":10,"experience":3},"math":{"interest":5,"experience":2},"outdoors":{"interest":7,"experience":5}},{"id":"13","color":"green","name":"Paisley","shape":"square","feeling":"yay","music":{"interest":10,"experience":6},"math":{"interest":1,"experience":7},"outdoors":{"interest":5,"experience":1}},{"id":"14","color":"pink","name":"William","shape":"triangle","feeling":"meh","music":{"interest":3,"experience":4},"math":{"interest":6,"experience":3},"outdoors":{"interest":7,"experience":0}},{"id":"15","color":"yellow","name":"Lincoln","shape":"triangle","feeling":"meh","music":{"interest":4,"experience":5},"math":{"interest":9,"experience":1},"outdoors":{"interest":3,"experience":9}},{"id":"16","color":"yellow","name":"Owen","shape":"triangle","feeling":"yay","music":{"interest":8,"experience":2},"math":{"interest":0,"experience":1},"outdoors":{"interest":6,"experience":2}},{"id":"17","color":"pink","name":"Owen","shape":"triangle","feeling":"sad","music":{"interest":3,"experience":3},"math":{"interest":1,"experience":10},"outdoors":{"interest":0,"experience":3}},{"id":"18","color":"liblue","name":"Mason","shape":"square","feeling":"sad","music":{"interest":8,"experience":8},"math":{"interest":4,"experience":3},"outdoors":{"interest":3,"experience":9}},{"id":"19","color":"green","name":"Samantha","shape":"square","feeling":"sad","music":{"interest":10,"experience":0},"math":{"interest":4,"experience":4},"outdoors":{"interest":4,"experience":8}},{"id":"20","color":"yellow","name":"Henry","shape":"square","feeling":"yay","music":{"interest":7,"experience":3},"math":{"interest":10,"experience":3},"outdoors":{"interest":8,"experience":4}}],
+    unassignedCityTwo: [{"id":"1","color":"pink","name":"Ezekiel","shape":"triangle","feeling":"meh","music":{"interest":8,"experience":4},"math":{"interest":10,"experience":3},"outdoors":{"interest":3,"experience":10}},{"id":"2","color":"yellow","name":"Jonathan","shape":"triangle","feeling":"meh","music":{"interest":0,"experience":3},"math":{"interest":4,"experience":5},"outdoors":{"interest":4,"experience":5}},{"id":"3","color":"green","name":"Piper","shape":"square","feeling":"meh","music":{"interest":9,"experience":6},"math":{"interest":0,"experience":10},"outdoors":{"interest":7,"experience":8}},{"id":"4","color":"blue","name":"Jacob","shape":"triangle","feeling":"sad","music":{"interest":4,"experience":8},"math":{"interest":1,"experience":0},"outdoors":{"interest":1,"experience":6}},{"id":"5","color":"blue","name":"Ruby","shape":"triangle","feeling":"sad","music":{"interest":2,"experience":1},"math":{"interest":3,"experience":3},"outdoors":{"interest":5,"experience":0}},{"id":"6","color":"pink","name":"Sarah","shape":"triangle","feeling":"sad","music":{"interest":5,"experience":3},"math":{"interest":5,"experience":3},"outdoors":{"interest":4,"experience":3}},{"id":"7","color":"blue","name":"Jace","shape":"square","feeling":"meh","music":{"interest":1,"experience":5},"math":{"interest":9,"experience":4},"outdoors":{"interest":7,"experience":0}},{"id":"8","color":"green","name":"Greyson","shape":"triangle","feeling":"meh","music":{"interest":5,"experience":6},"math":{"interest":1,"experience":5},"outdoors":{"interest":5,"experience":8}},{"id":"9","color":"pink","name":"Claire","shape":"square","feeling":"meh","music":{"interest":3,"experience":8},"math":{"interest":1,"experience":8},"outdoors":{"interest":9,"experience":10}},{"id":"10","color":"blue","name":"Autumn","shape":"triangle","feeling":"meh","music":{"interest":0,"experience":1},"math":{"interest":3,"experience":5},"outdoors":{"interest":2,"experience":0}},{"id":"11","color":"yellow","name":"Landon","shape":"square","feeling":"meh","music":{"interest":5,"experience":3},"math":{"interest":8,"experience":10},"outdoors":{"interest":3,"experience":9}},{"id":"12","color":"blue","name":"Camila","shape":"triangle","feeling":"yay","music":{"interest":8,"experience":3},"math":{"interest":6,"experience":0},"outdoors":{"interest":4,"experience":1}},{"id":"13","color":"yellow","name":"Charles","shape":"square","feeling":"yay","music":{"interest":3,"experience":7},"math":{"interest":7,"experience":5},"outdoors":{"interest":9,"experience":4}},{"id":"14","color":"yellow","name":"Camila","shape":"triangle","feeling":"sad","music":{"interest":3,"experience":1},"math":{"interest":8,"experience":4},"outdoors":{"interest":10,"experience":2}},{"id":"15","color":"green","name":"Aaliyah","shape":"square","feeling":"yay","music":{"interest":5,"experience":0},"math":{"interest":8,"experience":1},"outdoors":{"interest":9,"experience":9}},{"id":"16","color":"yellow","name":"Ava","shape":"square","feeling":"sad","music":{"interest":9,"experience":6},"math":{"interest":9,"experience":8},"outdoors":{"interest":9,"experience":10}},{"id":"17","color":"liblue","name":"Alexa","shape":"triangle","feeling":"sad","music":{"interest":6,"experience":9},"math":{"interest":10,"experience":9},"outdoors":{"interest":0,"experience":1}},{"id":"18","color":"blue","name":"Adrian","shape":"triangle","feeling":"meh","music":{"interest":9,"experience":6},"math":{"interest":1,"experience":1},"outdoors":{"interest":9,"experience":10}},{"id":"19","color":"yellow","name":"Penelope","shape":"square","feeling":"meh","music":{"interest":8,"experience":5},"math":{"interest":9,"experience":4},"outdoors":{"interest":2,"experience":8}},{"id":"20","color":"yellow","name":"Hannah","shape":"triangle","feeling":"yay","music":{"interest":2,"experience":9},"math":{"interest":5,"experience":0},"outdoors":{"interest":7,"experience":1}}],
+    unassignedCityThree: [{"id":"1","color":"liblue","name":"Violet","shape":"square","feeling":"sad","music":{"interest":6,"experience":9},"math":{"interest":3,"experience":10},"outdoors":{"interest":7,"experience":0}},{"id":"2","color":"blue","name":"Lily","shape":"square","feeling":"sad","music":{"interest":5,"experience":8},"math":{"interest":0,"experience":8},"outdoors":{"interest":6,"experience":10}},{"id":"3","color":"blue","name":"Madelyn","shape":"triangle","feeling":"meh","music":{"interest":6,"experience":3},"math":{"interest":1,"experience":10},"outdoors":{"interest":10,"experience":10}},{"id":"4","color":"yellow","name":"Ayden","shape":"square","feeling":"meh","music":{"interest":10,"experience":6},"math":{"interest":2,"experience":3},"outdoors":{"interest":6,"experience":8}},{"id":"5","color":"blue","name":"Madelyn","shape":"square","feeling":"sad","music":{"interest":4,"experience":6},"math":{"interest":9,"experience":3},"outdoors":{"interest":7,"experience":9}},{"id":"6","color":"yellow","name":"Piper","shape":"square","feeling":"meh","music":{"interest":9,"experience":5},"math":{"interest":2,"experience":9},"outdoors":{"interest":9,"experience":3}},{"id":"7","color":"liblue","name":"Julian","shape":"triangle","feeling":"sad","music":{"interest":7,"experience":6},"math":{"interest":4,"experience":5},"outdoors":{"interest":8,"experience":5}},{"id":"8","color":"yellow","name":"Theodore","shape":"square","feeling":"meh","music":{"interest":0,"experience":3},"math":{"interest":3,"experience":10},"outdoors":{"interest":0,"experience":5}},{"id":"9","color":"liblue","name":"Camila","shape":"triangle","feeling":"sad","music":{"interest":4,"experience":0},"math":{"interest":2,"experience":8},"outdoors":{"interest":1,"experience":2}},{"id":"10","color":"green","name":"Alice","shape":"square","feeling":"yay","music":{"interest":1,"experience":6},"math":{"interest":2,"experience":5},"outdoors":{"interest":9,"experience":9}},{"id":"11","color":"green","name":"Henry","shape":"square","feeling":"sad","music":{"interest":4,"experience":10},"math":{"interest":2,"experience":7},"outdoors":{"interest":2,"experience":8}},{"id":"12","color":"pink","name":"Harper","shape":"triangle","feeling":"sad","music":{"interest":6,"experience":6},"math":{"interest":4,"experience":5},"outdoors":{"interest":8,"experience":4}},{"id":"13","color":"yellow","name":"Serenity","shape":"square","feeling":"sad","music":{"interest":1,"experience":6},"math":{"interest":3,"experience":1},"outdoors":{"interest":3,"experience":9}},{"id":"14","color":"blue","name":"Elena","shape":"square","feeling":"meh","music":{"interest":6,"experience":2},"math":{"interest":6,"experience":4},"outdoors":{"interest":4,"experience":8}},{"id":"15","color":"liblue","name":"Ayden","shape":"triangle","feeling":"sad","music":{"interest":4,"experience":0},"math":{"interest":7,"experience":1},"outdoors":{"interest":4,"experience":5}},{"id":"16","color":"pink","name":"Hunter","shape":"triangle","feeling":"yay","music":{"interest":9,"experience":0},"math":{"interest":6,"experience":0},"outdoors":{"interest":6,"experience":2}},{"id":"17","color":"liblue","name":"Olivia","shape":"triangle","feeling":"yay","music":{"interest":9,"experience":2},"math":{"interest":2,"experience":1},"outdoors":{"interest":1,"experience":10}},{"id":"18","color":"blue","name":"Layla","shape":"triangle","feeling":"yay","music":{"interest":10,"experience":0},"math":{"interest":8,"experience":8},"outdoors":{"interest":4,"experience":4}},{"id":"19","color":"pink","name":"Bryson","shape":"square","feeling":"sad","music":{"interest":8,"experience":5},"math":{"interest":0,"experience":10},"outdoors":{"interest":2,"experience":0}},{"id":"20","color":"yellow","name":"Aria","shape":"triangle","feeling":"sad","music":{"interest":4,"experience":1},"math":{"interest":4,"experience":4},"outdoors":{"interest":5,"experience":1}}]
+  };
+
+
 
   // Generate a data set
   function create(options) {
@@ -76,7 +92,6 @@
         dataPoint.outdoors.interest,
         dataPoint.outdoors.experience
       ];
-      // return colors.indexOf(dataPoint.color);
     });
   }
 
@@ -86,14 +101,35 @@
 
   function toY(dataset) {
     return dataset.map(function(dataPoint) {
+<<<<<<< HEAD
       // return tf.oneHot(tf.tensor1d([camps.indexOf(dataPoint.assignedCamp)], 'int32'), 3).arraySync()
       var oneHotLabel = tf.oneHot(tf.tensor1d([camps.indexOf(dataPoint.assignedCamp)], 'int32'), 3)
       return Array.from(oneHotLabel.dataSync())
+=======
+      var labelIndex = camps.indexOf(dataPoint.assignedCamp);
+      var indexTensor = tf.tensor1d([labelIndex], 'int32')
+      return tf.oneHot(indexTensor, 3).arraySync()[0];
+>>>>>>> 318eca31c409bf6383d8a35a80c038b0fa67eafd
     });
   }
 
-  // Render a data point as HTML
-  function renderDataPoint(dataPoint) {
+  // an application, completed or not
+  function renderApplicationHtml(dataPoint, options = {}) {
+    var imageUrl = imageUrlForDataPoint(dataPoint);
+    var assignedCampHtml = (dataPoint.assignedCamp)
+      ? `<div class="Animation-assigned">went to ${dataPoint.assignedCamp}</div>`
+      : '';
+    return `<div class="Animation-application ${options.className || ''}">
+      <div class="Animation-tiny"><img src="${imageUrl}" /></div>
+      <div class="Animation-tiny">math: <div class="Animation-gauge"><div style="width: ${dataPoint.math.interest*10}%"></div></div></div>
+      <div class="Animation-tiny">music: <div class="Animation-gauge"><div style="width: ${dataPoint.music.interest*10}%"></div></div></div>
+      <div class="Animation-tiny">outdoors: <div class="Animation-gauge"><div style="width: ${dataPoint.outdoors.interest*10}%"></div></div></div>
+      ${assignedCampHtml}
+    </div>`;
+  }
+
+  // a friendly shape!
+  function renderMeetShapeHtml(dataPoint) {
     var imageUrl = imageUrlForDataPoint(dataPoint, { feeling: 'yay' }); // always happy to start!
     var mostInterestedCampText = _.maxBy([
       { text: 'math', interest: dataPoint.math.interest },
@@ -126,36 +162,45 @@
     </div>`;
   }
 
-  function onClick(el) {
-    var dataset = create();
+  function onMeetShapes(dataset, el) {
+    el.querySelector('.MeetShapesDataset-dataset-preview').innerHTML = `
+      <div class="MeetShapesDataset-dataset-preview-container">
+        ${_.sampleSize(dataset, 3).map(renderMeetShapeHtml).join('')}
+      </div>
+    `;
+  }
 
-    var previewEl = el.querySelector('.MeetShapesDataset-dataset-preview');
-    var html = `<div class="MeetShapesDataset-data-points-container">
-      ${dataset.slice(0, 3).map(renderDataPoint).join('')}
+  // initial render
+  function init(game, options) {
+    // historical
+    var dataset = game.historicalDataset;
+    var previewEl = options.historicalEl.querySelector('.HistoricalApplications-preview');
+    var html = `<div class="HistoricalApplications-container">
+      ${dataset.map(function(dataPoint) {
+        return renderApplicationHtml(dataPoint, { className: 'Application-stack'});
+      }).join('')}
     </div>`;
     previewEl.innerHTML = html;
 
-    window.lastDataset = dataset;
-    window.lastX = toX(dataset);
-    window.lastY = toY(dataset);
-  }
-
-  // Add handler for "New dataset"
-  function init(el) {
-    var buttonEl = el.querySelector('.MeetShapesDataset-create-dataset');
-    buttonEl.addEventListener('click', onClick.bind(null, el));
-    onClick(el);
+    // first city
+    options.meetShapesEl.querySelector('button').addEventListener('click', onMeetShapes.bind(null, game.firstCityDataset, options.meetShapesEl));
+    onMeetShapes(game.firstCityDataset, options.meetShapesEl);
   };
 
-  window.datasets = {
+  window.DATASETS = {
     init: init,
     create: create,
+    exampleDatasets: exampleDatasets,
+    toX: toX,
+    toY: toY,
     constants: {
       colors: colors,
       shapes: shapes,
       feelings: feelings,
       camps: camps
     },
-    imageUrlForDataPoint: imageUrlForDataPoint
+    imageUrlForDataPoint: imageUrlForDataPoint,
+    renderApplicationHtml: renderApplicationHtml,
+    renderMeetShapeHtml: renderMeetShapeHtml
   };
 })();

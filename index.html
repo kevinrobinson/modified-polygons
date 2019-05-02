@@ -142,10 +142,8 @@
 		<br><p>
 			There's a record of who has attended which camps in the past. We have a historical dataset.
 		</p>
-		<div class="MeetShapesDataset">
-			<div class="MeetShapesDataset-dataset-preview"></div>
-			<button class="MeetShapesDataset-create-dataset">Meet a few shapes excited for summer!</button>
-			<div class="chapter_narrow" style="color: red; width: 300px;">^^ Kevin: oops!  I put this ^ in the wrong spot and need to revise. it should be historical, and this set of "shapes excited for the summer" should be below, before training.</div>
+		<div class="HistoricalApplications">
+			<div class="HistoricalApplications-preview"></div>
 		</div>
 		<p>
 			These are the features the algorithm considers.
@@ -161,23 +159,21 @@
 	    <canvas id="myChart" width="400" height="400"></canvas>
 	</div>
 
-	<!-- <button onclick="train()">Train the model 1 step</button> -->
-
 	<div class="chapter_narrow">
 		<p>
 		Great! We can use the historical dataset to train the algorithm!
 		</p>
-		<div class="instruction">
-			<img src="play/img/play_icon.png"/ class="center" onclick="train()">
-			<img src="play/img/fastforward_icon.png"/>
-			<br>
-			Ready? GO! (press the button to train)
-			TODO: make lazy button work
-		</div>
 	</div>
 
 	<div class="chapter_wide">
-		<div class="Animation TrainingAnimation"></div>
+		<div class="Animation TrainingAnimation">
+			<div class="Animation-instructions-container">
+				<div class="Animation-instructions">
+					<img class="Train-button" src="play/img/play_icon.png"/ class="center">
+					<div class="Animation-instructions-text">Train from 2017 data</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div class="chapter_narrow">
@@ -187,12 +183,24 @@
 	</div>
 
 	<!-- CHAPTER -->
+	<div class="chapter_narrow">
+		<p>
+		Okay!  Here are some triangles who are excited about the summer camp and sent in their applications.
+		</p>
+	</div>
+	<div class="chapter_wide">
+		<div class="MeetShapesDataset">
+			<div class="MeetShapesDataset-dataset-preview"></div>
+			<button class="MeetShapesDataset-create-dataset">Meet some more shapes excited for summer!</button>
+		</div>
+	</div>
+
 	<div class="chapter_wide">
 		<p>
 		Awesome! Now we can deploy the model that the algorithm trained!
 		TODO: make different icon for play - deploy
 		</p>
-		<img src="play/img/play_icon.png"/ class="center" onclick="deploy()">
+		<img src="play/img/play_icon.png"/ class="DeployFirstCity-button center">
 		<p>
 		Notice the model sorting the shapes into what summer camp it thinks they should attend.
 		</p>
@@ -291,7 +299,7 @@
 
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.7"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <script src="js/lodash.js"></script>
 <script src="js/Mouse.js"></script>
@@ -304,42 +312,39 @@
 <script src="js/velocity.min.js"></script>
 <script src="js/wiggle.js"></script>
 <script src="js/visualize.js"></script>
+<script src="js/facets.js"></script>
 <script>
-function busZoom(){
-	var el = document.querySelector('.Vehicle')
-	Velocity(el, { left: 450 }, 3000, "swing"); //move right
-	Velocity(el, { opacity: 0 }, { visibility: "hidden" }); //alternatively, display: "none" to disappear el
-} </script>
-<script>
- 	window.datasets.init(document.querySelector('.MeetShapesDataset'));
- 	window.visualize(document.querySelector('.Visualize'), window.wiggle);
+	// global state
+	window.game = {
+		historicalDataset: DATASETS.exampleDatasets.historicalOne,
+		firstCityDataset: DATASETS.exampleDatasets.unassignedCityOne,
+		training: {
+			progress: [],
+			trainedModel: null,
+			finalAccuracy: null
+		}
+	};
 </script>
 <script>
-	document.querySelector('.Visualize-facets-button').addEventListener('click', function(e) {
-		document.querySelector('.Visualize-facets').innerHTML = '<facets-dive width="800" height="600" color-by="feeling" />';
-
-		// flatten
-		var facetsData = window.lastDataset.map(function(dataPoint) {
-			return _.merge({}, dataPoint, {
-				mathInterest: dataPoint.math.interest,
-				musicInterest: dataPoint.music.interest,
-				outdoorsInterest: dataPoint.outdoors.interest,
-				mathExperience: dataPoint.math.experience,
-				musicExperience: dataPoint.music.experience,
-				outdoorsExperience: dataPoint.outdoors.experience
-			});
-		});
-
-		// config
-  	var facetsDiveEl = document.querySelector('facets-dive');
-
-
-  	// the order of these calls matters
-  	facetsDiveEl.data = facetsData;
-  	facetsDiveEl.hideInfoCard = true;
-  	facetsDiveEl.colorBy = 'feeling';
-  	facetsDiveEl.verticalFacet = 'shape';
-  	facetsDiveEl.horizontalFacet = 'color';
+ 	DATASETS.init(game, {
+ 		historicalEl: document.querySelector('.HistoricalApplications'),
+ 		meetShapesEl: document.querySelector('.MeetShapesDataset')
+ 	});
+ 	TRAINING.init(game, {
+		trainButtonEl: document.querySelector('.Train-button'),
+		predictFirstCityButtonEl: document.querySelector('.DeployFirstCity-button')
 	});
+ 	VISUALIZE.init(game, document.querySelector('.Visualize'));
+	FACETS.init(game, {
+		buttonEl: document.querySelector('.Visualize-facets-button'),
+		containerEl: document.querySelector('.Visualize-facets')
+	});
+
+	function busZoom() {
+		var el = document.querySelector('.Vehicle')
+		Velocity(el, { left: 800 }, 3000, "swing"); //move right
+		Velocity(el, { opacity: 0 }, { visibility: "hidden" }); //alternatively, display: "none" to disappear el
+	}
 </script>
+</div>
 </html>
