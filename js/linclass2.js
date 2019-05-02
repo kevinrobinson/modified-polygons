@@ -1,13 +1,5 @@
 (function() {
 
-  // Create model
-  const model = tf.sequential({
-    layers: [
-      tf.layers.dense({inputShape: [9], units: 10, activation: 'relu'}),
-      tf.layers.dense({units: 3, activation: 'softmax'}),
-    ]
-  });
-
 // Create model
 const model = tf.sequential({
   layers: [
@@ -104,4 +96,5 @@ function train() {
     init: init,
     predict: predict
   };
+}
 })();

@@ -101,15 +101,9 @@
 
   function toY(dataset) {
     return dataset.map(function(dataPoint) {
-<<<<<<< HEAD
       // return tf.oneHot(tf.tensor1d([camps.indexOf(dataPoint.assignedCamp)], 'int32'), 3).arraySync()
       var oneHotLabel = tf.oneHot(tf.tensor1d([camps.indexOf(dataPoint.assignedCamp)], 'int32'), 3)
       return Array.from(oneHotLabel.dataSync())
-=======
-      var labelIndex = camps.indexOf(dataPoint.assignedCamp);
-      var indexTensor = tf.tensor1d([labelIndex], 'int32')
-      return tf.oneHot(indexTensor, 3).arraySync()[0];
->>>>>>> 318eca31c409bf6383d8a35a80c038b0fa67eafd
     });
   }
 
