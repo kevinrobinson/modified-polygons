@@ -75,22 +75,26 @@
     }, 100);
   }
 
-  // In deployment, make a new prediction
-  function predict(dataset) {
-    const testX = tf.tensor(DATASETS.toX(dataset));
-    const prediction = model.predict(testX);
-    prediction.print();
-    console.log(prediction);
-  }
-
   function init(game, options = {}) {
     options.trainButtonEl.addEventListener('click', onTrainClick.bind(null, game));
     options.predictFirstCityButtonEl.addEventListener('click', onDeployFirstCityClick.bind(null, game));
   }
 
   function onDeployFirstCityClick(game) {
-    predict(game.firstCityDataset);
+    // predict and animate
+    window.DEPLOY_ANIMATION.animate(game.firstCityDataset, predict);
+
     // need animation and UI feedback
+  }
+
+  // In deployment, make a new prediction and return the camp
+  // string key
+  function predict(dataPoint) {
+    const testX = tf.tensor(DATASETS.toX([dataPoint]));
+    const prediction = model.predict(testX);
+    const campIndex = tf.argMax(prediction.arraySync()[0]).arraySync();
+    const camp = DATASETS.constants.camps[campIndex];
+    return camp;
   }
 
   window.TRAINING = {

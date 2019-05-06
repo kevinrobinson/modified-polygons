@@ -25,12 +25,12 @@
         var dataPoint = shuffledDataset[n];
         setTimeout(function() {
           var html = renderDataPoint(dataPoint);
-          var el = window.Animation.slideInApplication(containerEl, html, timings);
+          var el = TRAINING_ANIMATION.slideInApplication(containerEl, html, timings);
           var camp = predictFunc(dataPoint);
           var pos = {
-            music: 400,
-            math: 200,
-            outdoor: 10
+            music: 320,
+            math: 170,
+            outdoor: 20
           }[camp]
           Velocity(el, { top: pos, left: 750}, { duration: timings.slideRight }); // move to camp category
         }, n * timings.newEvery);
@@ -38,7 +38,7 @@
   }
 
   function renderDataPoint(dataPoint) {
-      var imageUrl = datasets.imageUrlForDataPoint(dataPoint);
+      var imageUrl = DATASETS.imageUrlForDataPoint(dataPoint);
       return `<div class="Animation-application">
           <div class="Animation-tiny"><img src="${imageUrl}" /></div>
           <div class="Animation-tiny">math: <div class="Animation-gauge"><div style="width: ${dataPoint.math.interest*10}%"></div></div></div>
@@ -47,7 +47,7 @@
       </div>`;
   }
 
-  window.DeployAnimation = {
+  window.DEPLOY_ANIMATION = {
     animate: animate
   };
 })();
