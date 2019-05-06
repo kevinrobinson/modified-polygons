@@ -3,13 +3,13 @@
 <head>
 
 	<!-- Place this data between the <head> tags of your website -->
-	<title>In progress</title>
-	<meta name="description" content="A playable post on how harmless choices can make a harmful world." />
+	<title>Supervised Polygons</title>
+	<meta name="description" content="A playable post for talking about algorithmic justice." />
 	<link rel="icon" type="image/png" href="favicon.png">
 
 	<!-- Schema.org markup for Google+ -->
-	<meta itemprop="name" content="Parable of the Polygons">
-	<meta itemprop="description" content="A playable post on how harmless choices can make a harmful world.">
+	<meta itemprop="name" content="Supervised Polygons">
+	<meta itemprop="description" content="A playable post for talking about algorithmic justice.">
 	<meta itemprop="image" content="http://ncase.me/polygons/social/thumbnail.png">
 
 	<!-- Twitter Card data -->
@@ -56,11 +56,16 @@
 
 	<!-- CHAPTER -->
 	<div class="chapter_wide">
-
+		<b>This is a story of how algorithms can cause harm in unexpected ways.</b>
 		<p>
-			Welcome to the land of Polynomia!
+			It's about summer camp in the land of Polynomia.
 		</p>
-		<img src="play/img/land.png"/>
+		<div class="Map">
+			<div class="Map-container">
+				<img class="Map-graphic" src="play/img/land.png"/>
+				<div class="Map-polygons"></div>
+			</div>
+		</div>
 		<p>
 			Polynomia is home to a variety of shapes. Meet some random shapes here:
 		</p>
@@ -311,11 +316,14 @@
 <script src="js/wiggle.js"></script>
 <script src="js/visualize.js"></script>
 <script src="js/facets.js"></script>
+<script src="js/map.js"></script>
 <script>
 	// global state
 	window.game = {
 		historicalDataset: DATASETS.exampleDatasets.historicalOne,
 		firstCityDataset: DATASETS.exampleDatasets.unassignedCityOne,
+		secondCityDataset: DATASETS.exampleDatasets.unassignedCityTwo,
+		thirdCityDataset: DATASETS.exampleDatasets.unassignedCityThree,
 		training: {
 			progress: [],
 			trainedModel: null,
@@ -343,6 +351,10 @@
 		Velocity(el, { left: 800 }, 3000, "swing"); //move right
 		Velocity(el, { opacity: 0 }, { visibility: "hidden" }); //alternatively, display: "none" to disappear el
 	}
+
+	MAP.init({
+		mapEl: document.querySelector('.Map')
+	});
 </script>
 </div>
 </html>

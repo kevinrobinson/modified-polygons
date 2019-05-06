@@ -392,3 +392,28 @@ span[cartoon]:hover{
 .DiscussAndWrite > div {
 	padding: 10px;
 }
+
+.Map {
+}
+.Map-container {
+	position: relative;
+	width: 650px;
+  height: 335px;
+}
+.Map-graphic {
+	position: absolute;
+}
+.Map-title {
+	position: absolute;
+	border: 1px solid #333;
+}
+
+
+.Map-polygons > img {
+	position: absolute;
+}
+
+.Map-polygon-scale {
+	transform: scale(0.2);
+	transform-origin: top left;
+}
