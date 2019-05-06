@@ -394,14 +394,24 @@ span[cartoon]:hover{
 }
 
 .Map {
+	 width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Map-container {
 	position: relative;
-	width: 650px;
-  height: 335px;
+	width: 1000px;
+  height: 520px;
 }
 .Map-graphic {
+}
+.Map-sun {
 	position: absolute;
+  top: 0;
+  right: 10px;
+  width: 100px;
+  height: auto;
 }
 .Map-title {
 	position: absolute;
@@ -416,4 +426,17 @@ span[cartoon]:hover{
 .Map-polygon-scale {
 	transform: scale(0.2);
 	transform-origin: top left;
+}
+
+.Map-camp-container {
+  position: absolute;
+  transform: scale(0.35);
+  left: 30px;
+  top: 110px;
+  width: 100%;
+  text-align: center;
+}
+
+.Map-camp {
+	display: inline-block;
 }

@@ -6,6 +6,7 @@
       visualizeEl.querySelectorAll('.Visualize-button').forEach(function(el) { el.classList.remove('Visualize-selected'); });
       e.target.classList.add('Visualize-selected');
       
+      // TODO(kr) change this to different dataset
       WIGGLE.start(canvasEl, game.historicalDataset, {
         values: values,
         valueFn: function(d) { return d[byKey]; }
