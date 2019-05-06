@@ -22,17 +22,23 @@ addAsset("yayTriangle","../img/yay_triangle.png");
 addAsset("yayTriangleBlink","../img/yay_triangle_blink.png");
 addAsset("mehTriangle","../img/meh_triangle.png");
 addAsset("sadTriangle","../img/sad_triangle.png");
+
 addAsset("yaySquare","../img/yay_square.png");
 addAsset("yaySquareBlink","../img/yay_square_blink.png");
 addAsset("mehSquare","../img/meh_square.png");
 addAsset("sadSquare","../img/sad_square.png");
+
+addAsset("yayLiblueTriangle","../img/liblue_triangle_yay.png");
+addAsset("yayLiblueTriangleBlink","../img/liblue_triangle_yay_blink.png");
+addAsset("mehLiblueTriangle","../img/liblue_triangle_meh.png");
+addAsset("sadLiblueTriangle","../img/liblue_triangle_sad.png");
 
 var IS_PICKING_UP = false;
 
 var lastMouseX, lastMouseY;
 
 function Draggable(x,y){
-	
+
 	var self = this;
 	self.x = x;
 	self.y = y;
@@ -191,7 +197,7 @@ function Draggable(x,y){
 					img = images.yayTriangle;
 				}
 			}
-		}else{
+		}else if(self.color=="square"){
 			if(self.shaking){
 				img = images.sadSquare;
 			}else if(self.bored){
@@ -204,7 +210,21 @@ function Draggable(x,y){
 					img = images.yaySquare;
 				}
 			}
+		}else{
+			if(self.shaking){
+				img = images.sadLiblueTriangle;
+			}else if(self.bored){
+				img = images.mehLiblueTriangle;
+			}else{
+				if(self.blinking>0){
+					self.blinking--;
+					img = images.yayLiblueTriangleBlink;
+				}else{
+					img = images.yayLiblueTriangle;
+				}
+			}
 		}
+
 
 		// Dangle
 		if(self.dragged){
@@ -265,7 +285,7 @@ function render(){
 		if(doneBuffer==0){
 			doneAnimFrame = 30;
 			console.log("DONE");
-			
+
 			if(window.SOLVE_MESSAGE){
 				window.top.showEasterEgg(window.SOLVE_MESSAGE);
 			}
