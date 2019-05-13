@@ -78,13 +78,12 @@
 
   function init(game, options = {}) {
     options.trainButtonEl.addEventListener('click', onTrainClick.bind(null, game));
-    options.predictFirstCityButtonEl.addEventListener('click', onDeployToCity.bind(null, game.firstCityDataset));
-    // options.predictSecondCityButtonEl.addEventListener('click', onDeployToCity.bind(null, game.secondCityDataset));
-    // options.predictThirdCityButtonEl.addEventListener('click', onDeployToCity.bind(null, game.thirdCityDataset));
+    options.predictFirstCityButtonEl.addEventListener('click', onDeployToCity.bind(null, game));
   }
 
-  function onDeployToCity(cityDataset) {
-    // predict and animate
+  function onDeployToCity(game) {
+    // predict and animate for all cities
+    var datasets = cityDataset
     window.DEPLOY_ANIMATION.animate(cityDataset, predict);
 
     // need animation and UI feedback

@@ -13,10 +13,17 @@
       });
     }
     
+    // buttons
     visualizeEl.querySelector('.Visualize-by-shape').addEventListener('click', onClick.bind(null, DATASETS.constants.shapes, 'shape'));
     visualizeEl.querySelector('.Visualize-by-color').addEventListener('click', onClick.bind(null, DATASETS.constants.colors, 'color'));
     visualizeEl.querySelector('.Visualize-by-camp').addEventListener('click', onClick.bind(null, DATASETS.constants.camps, 'assignedCamp'));
     visualizeEl.querySelector('.Visualize-by-feeling').addEventListener('click', onClick.bind(null, DATASETS.constants.feelings, 'feeling'));
+
+    // facets dive
+    FACETS.init(cityDatasetFn, {
+      buttonEl: visualizeEl.querySelector('.Visualize-facets-button'),
+      containerEl: visualizeEl.querySelector('.Visualize-facets')
+    });
   }
 
   window.VISUALIZE = {

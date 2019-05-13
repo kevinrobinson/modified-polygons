@@ -187,21 +187,27 @@
 		Awesome! Now we can deploy the model that the algorithm trained.
 		</p>
 		<p>
-			Let's start with one city, Upp, first.
-		</p>
-		<div class="Map Map-DeployFirst">
-			<div class="Map-container">
-				<img class="Map-graphic" src="play/img/land_sharp_1000.png"/>
-			</div>
-		</div>
-		<p>
 		Notice the model sorting the shapes into what summer camp it thinks they should attend.
 		</p>
 	</div>
 	<div class="chapter_wide">
 		<div class="Animation DeployAnimation">
-			<img src="play/img/play_icon_black.png"/ class="DeployFirstCity-button center">
+			<div class="Animation-instructions-container">
+				<div class="Animation-instructions">
+					<img src="play/img/play_icon_black.png"/ class="DeployFirstCity-button center">
+					<div class="Animation-instructions-text">Deploy model on this summer's applications</div>
+				</div>
+			</div>
 		</div>
+	</div>
+
+	<div class="chapter_wide">
+		<p>
+			The next day at school, some of the shapes aren't too happy with the model's decisions.
+		</p>
+	</div>
+	<div class="chapter_narrow">
+		<img src="play/img/school_bus_shapes.png" class="Vehicle" onclick="busZoom()"/>
 	</div>
 
 	<!-- CHAPTER -->
@@ -215,6 +221,17 @@
 		Let's use our own reasoning to discuss the outcomes of the model's decisions.
 	</div>
 
+	<div class="chapter_wide">
+		<p>
+			Let's start with one city, Upp, first.
+		</p>
+		<div class="Map Map-DeployFirst">
+			<div class="Map-container">
+				<img class="Map-graphic" src="play/img/land_sharp_1000.png"/>
+			</div>
+		</div>
+	</div>
+
 	<div class="chapter_narrow">
 		<div class="DiscussAndWrite">
 			<div>What do you notice or wonder about the model's decisions?</div>
@@ -223,32 +240,23 @@
 
 	<!-- CHAPTER -->
 
-	<div class="chapter_wide">
-		<p>
-			The next day at school, some of the shapes aren't too happy with the decisions produced.
-		</p>
-	</div>
-	<div class="chapter_narrow">
-		<img src="play/img/school_bus_shapes.png" class="Vehicle" onclick="busZoom()"/>
-	</div>
-	<div class="chapter_wide Visualize Visualize-first">
-			Why are some shapes sad?
-			<br><br>
-			Use the buttons below to visualize the results in a few different ways.
-			<br><br>
-		</p>
-		<div class="Visualize-tool">
-			<button class="Visualize-button Visualize-by-shape">By Shape</button>
-			<button class="Visualize-button Visualize-by-color">By Color</button>
-			<button class="Visualize-button Visualize-by-camp">By Camp</button>
-			<button class="Visualize-button Visualize-by-feeling">By Emotion</button>
-			<div class="Evaluating">
-				<canvas class="Evaluating-canvas" width="1024" height="350"></canvas>
+	<div class="Visualize-first">
+		<div class="chapter_wide Visualize">
+			<p>
+				Use the buttons below to visualize the results in a few different ways.
+			</p>
+			<div class="Visualize-tool">
+				<button class="Visualize-button Visualize-by-shape">By Shape</button>
+				<button class="Visualize-button Visualize-by-color">By Color</button>
+				<button class="Visualize-button Visualize-by-camp">By Camp</button>
+				<button class="Visualize-button Visualize-by-feeling">By Emotion</button>
+				<div class="Evaluating">
+					<canvas class="Evaluating-canvas" width="1024" height="350"></canvas>
+				</div>
 			</div>
 		</div>
-
 		<div class="Visualize-facets chapter_narrow">
-			<div>If you still have more questions, you can explore further with <button class="Visualize-facets-button">Facets Dive</button>, a tool made by people on the <a href="https://ai.google/research/teams/brain/pair" target="_blank" rel="noopener noreferrer">People + AI Research team (PAIR)</a>.</button>
+			<div>Explore more with <button class="Visualize-facets-button">Facets Dive</button> from people on the <a href="https://ai.google/research/teams/brain/pair" target="_blank" rel="noopener noreferrer">People + AI Research team</a>.</button></div>
 		</div>
 	</div>
 
@@ -265,22 +273,24 @@
 	</div>
 
 	<!-- CHAPTER -->
-	<div class="chapter_wide">
-		<p>
-		Let's look at another city: Dow.
-		<br><br>
-		<div class="Visualize-tool Visualize-second">
-			<button class="Visualize-button Visualize-by-shape">By Shape</button>
-			<button class="Visualize-button Visualize-by-color">By Color</button>
-			<button class="Visualize-button Visualize-by-camp">By Camp</button>
-			<button class="Visualize-button Visualize-by-feeling">By Emotion</button>
-			<div class="Evaluating">
-				<canvas class="Evaluating-canvas" width="1024" height="350"></canvas>
+	<div class="Visualize-second">
+		<div class="chapter_wide">
+			<p>
+			Let's look at another city: Dow.
+			<br><br>
+			<div class="Visualize-tool">
+				<button class="Visualize-button Visualize-by-shape">By Shape</button>
+				<button class="Visualize-button Visualize-by-color">By Color</button>
+				<button class="Visualize-button Visualize-by-camp">By Camp</button>
+				<button class="Visualize-button Visualize-by-feeling">By Emotion</button>
+				<div class="Evaluating">
+					<canvas class="Evaluating-canvas" width="1024" height="350"></canvas>
+				</div>
 			</div>
 		</div>
-		<br><br>
-		TODO: Facets Dive Dow
-		</p>
+		<div class="Visualize-facets chapter_narrow">
+			<div>Explore more with <button class="Visualize-facets-button">Facets Dive</button> from people on the <a href="https://ai.google/research/teams/brain/pair" target="_blank" rel="noopener noreferrer">People + AI Research team</a>.</button></div>
+		</div>
 	</div>
 
 	<!-- CHAPTER -->
@@ -292,24 +302,23 @@
 	</div>
 
 	<!-- CHAPTER -->
-	<div class="chapter_wide">
-		<p>
-		And finally, for Sides...
-		<br><br>
-		TODO: visualize deployment Sides
-		<br><br>
-		<div class="Visualize-tool Visualize-third">
-			<button class="Visualize-button Visualize-by-shape">By Shape</button>
-			<button class="Visualize-button Visualize-by-color">By Color</button>
-			<button class="Visualize-button Visualize-by-camp">By Camp</button>
-			<button class="Visualize-button Visualize-by-feeling">By Emotion</button>
-			<div class="Evaluating">
-				<canvas class="Evaluating-canvas" width="1024" height="350"></canvas>
+	<div class="Visualize-third">
+		<div class="chapter_wide">
+			<p>
+			And finally, for Sides...
+			<div class="Visualize-tool">
+				<button class="Visualize-button Visualize-by-shape">By Shape</button>
+				<button class="Visualize-button Visualize-by-color">By Color</button>
+				<button class="Visualize-button Visualize-by-camp">By Camp</button>
+				<button class="Visualize-button Visualize-by-feeling">By Emotion</button>
+				<div class="Evaluating">
+					<canvas class="Evaluating-canvas" width="1024" height="350"></canvas>
+				</div>
 			</div>
 		</div>
-		<br><br>
-		TODO: Facets Dive Sides
-		</p>
+		<div class="Visualize-facets chapter_narrow">
+			<div>Explore more with <button class="Visualize-facets-button">Facets Dive</button> from people on the <a href="https://ai.google/research/teams/brain/pair" target="_blank" rel="noopener noreferrer">People + AI Research team</a>.</button></div>
+		</div>
 	</div>
 
 	<!-- CHAPTER -->
@@ -375,9 +384,7 @@
  	});
  	TRAINING.init(game, {
 		trainButtonEl: document.querySelector('.Train-button'),
-		predictFirstCityButtonEl: document.querySelector('.DeployFirstCity-button'),
-		// predictSecondCityButtonEl: document.querySelector('.DeploySecondCity-button'),
-		// predictThirdCityButtonEl: document.querySelector('.DeployThirdCity-button'),
+		predictFirstCityButtonEl: document.querySelector('.DeployFirstCity-button')
 	});
  	VISUALIZE.init(document.querySelector('.Visualize-first'), function() {
  		return game.firstCityDataset;
@@ -388,10 +395,6 @@
  	VISUALIZE.init(document.querySelector('.Visualize-third'), function() {
  		return game.thirdCityDataset;
  	});
-	FACETS.init(game, {
-		buttonEl: document.querySelector('.Visualize-facets-button'),
-		containerEl: document.querySelector('.Visualize-facets')
-	});
 
 	function busZoom() {
 		var el = document.querySelector('.Vehicle')

@@ -1,10 +1,11 @@
 (function() {
-  function init(game, options) {
+  function init(cityDatasetFn, options) {
     options.buttonEl.addEventListener('click', function(e) {
       options.containerEl.innerHTML = '<facets-dive width="800" height="600" color-by="feeling" />';
 
       // flatten
-      var facetsData = game.historicalDataset.map(function(dataPoint) {
+      var cityDataset = cityDatasetFn();
+      var facetsData = cityDataset.map(function(dataPoint) {
         return _.merge({}, dataPoint, {
           mathInterest: dataPoint.math.interest,
           musicInterest: dataPoint.music.interest,
