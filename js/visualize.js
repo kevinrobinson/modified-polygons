@@ -7,7 +7,7 @@
       e.target.classList.add('Visualize-selected');
       
       var cityDataset = cityDatasetFn();
-      if (!cityDataset[0].assignedCamp) alert('Train your model first!');
+      if (!cityDataset[0].assignedCamp) return alert('Train your model first!');
       
       WIGGLE.start(canvasEl, cityDataset, {
         values: values,
