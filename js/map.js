@@ -27,22 +27,25 @@
       <div style="position: absolute; left: ${left}px; top: ${top}px;">
         <div class="Map-polygon-scale">
           <img
-          class="animated slower heartBeat infinite ${className}"
+          class="${className}"
           src="${imageUrl}" />
         </div>
       </div>
     `;
   }
 
-  function htmlForPolygons(game) {
+  function htmlForPolygons(game, options) {
     var firstCity = game.firstCityDataset.map(function(dataPoint) {
-      return renderPolygonForMap(dataPoint, firstCityBounds, 'delay-1s');
+      var className = `${(options.classNamesForCities || {}).first || ''} delay-1s`;
+      return renderPolygonForMap(dataPoint, firstCityBounds, className);
     }).join('');
     var secondCity = game.secondCityDataset.map(function(dataPoint) {
-      return renderPolygonForMap(dataPoint, secondCityBounds, 'delay-2s');
+      var className = `${(options.classNamesForCities || {}).second || ''} delay-2s`;
+      return renderPolygonForMap(dataPoint, secondCityBounds, className);
     }).join('');
-    var thirdCity = game.secondCityDataset.map(function(dataPoint) {
-      return renderPolygonForMap(dataPoint, thirdCityBounds, '');
+    var thirdCity = game.thirdCityDataset.map(function(dataPoint) {
+      var className = `${(options.classNamesForCities || {}).third || ''} `;
+      return renderPolygonForMap(dataPoint, thirdCityBounds, className);
     }).join('');
     return [
       firstCity,
@@ -55,7 +58,7 @@
     if (options.shouldRenderPolygons) {
       var polygonsEl = document.createElement('div');
       polygonsEl.classList.add('Map-polygons');
-      polygonsEl.innerHTML = htmlForPolygons(game);
+      polygonsEl.innerHTML = htmlForPolygons(game, options);
       mapEl.querySelector('.Map-container').appendChild(polygonsEl);
     }
 

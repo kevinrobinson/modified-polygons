@@ -51,9 +51,9 @@
       }[camp];
       return `<div class="Animation-application">
           <div class="Animation-tiny"><img src="${imageUrl}" /></div>
-          <div class="Animation-tiny">math: <div class="Animation-gauge"><div style="width: ${dataPoint.math.interest*10}%"></div></div></div>
-          <div class="Animation-tiny">music: <div class="Animation-gauge"><div style="width: ${dataPoint.music.interest*10}%"></div></div></div>
-          <div class="Animation-tiny">outdoors: <div class="Animation-gauge"><div style="width: ${dataPoint.outdoors.interest*10}%"></div></div></div>
+          <div class="Animation-tiny">math <div class="Animation-gauge"><div style="width: ${dataPoint.math.interest*10}%"></div></div></div>
+          <div class="Animation-tiny">music <div class="Animation-gauge"><div style="width: ${dataPoint.music.interest*10}%"></div></div></div>
+          <div class="Animation-tiny">outdoors <div class="Animation-gauge"><div style="width: ${dataPoint.outdoors.interest*10}%"></div></div></div>
           <div class="Animation-deployed-to-camp">
             <div>assigned to <img src="${campImgUrl}" width="32" height="32" /></div>
           </div>

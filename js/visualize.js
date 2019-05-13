@@ -1,13 +1,13 @@
 (function() {
-  function init(game, visualizeEl) {
+  function init(visualizeEl, cityDatasetFn) {
     var canvasEl = visualizeEl.querySelector('.Evaluating-canvas');
     
     function onClick(values, byKey, e) {
       visualizeEl.querySelectorAll('.Visualize-button').forEach(function(el) { el.classList.remove('Visualize-selected'); });
       e.target.classList.add('Visualize-selected');
       
-      // TODO(kr) change this to different dataset
-      WIGGLE.start(canvasEl, game.historicalDataset, {
+      var cityDataset = cityDatasetFn();
+      WIGGLE.start(canvasEl, cityDataset, {
         values: values,
         valueFn: function(d) { return d[byKey]; }
       });

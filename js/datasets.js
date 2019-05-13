@@ -176,7 +176,7 @@
     var previewEl = options.historicalEl.querySelector('.HistoricalApplications-preview');
     var html = `<div class="HistoricalApplications-container">
       ${dataset.map(function(dataPoint) {
-        return renderApplicationHtml(dataPoint, { className: 'Application-stack'});
+        return renderApplicationHtml(dataPoint, { className: `Application-stack ${options.className || ''}`});
       }).join('')}
     </div>`;
     previewEl.innerHTML = html;

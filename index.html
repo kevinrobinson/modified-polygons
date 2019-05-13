@@ -222,14 +222,16 @@
 	</div>
 
 	<!-- CHAPTER -->
+
+	<div class="chapter_wide">
+		<p>
+			The next day at school, some of the shapes aren't too happy with the decisions produced.
+		</p>
+	</div>
 	<div class="chapter_narrow">
 		<img src="play/img/school_bus_shapes.png" class="Vehicle" onclick="busZoom()"/>
 	</div>
-
-	<div class="chapter_wide Visualize">
-		<p>
-			The next day at school, some of the shapes aren't too happy with the decisions produced.
-			<br><br>
+	<div class="chapter_wide Visualize Visualize-first">
 			Why are some shapes sad?
 			<br><br>
 			Use the buttons below to visualize the results in a few different ways.
@@ -267,7 +269,7 @@
 		<p>
 		Let's look at another city: Dow.
 		<br><br>
-		<div class="Visualize-tool">
+		<div class="Visualize-tool Visualize-second">
 			<button class="Visualize-button Visualize-by-shape">By Shape</button>
 			<button class="Visualize-button Visualize-by-color">By Color</button>
 			<button class="Visualize-button Visualize-by-camp">By Camp</button>
@@ -296,7 +298,7 @@
 		<br><br>
 		TODO: visualize deployment Sides
 		<br><br>
-		<div class="Visualize-tool">
+		<div class="Visualize-tool Visualize-third">
 			<button class="Visualize-button Visualize-by-shape">By Shape</button>
 			<button class="Visualize-button Visualize-by-color">By Color</button>
 			<button class="Visualize-button Visualize-by-camp">By Camp</button>
@@ -373,9 +375,19 @@
  	});
  	TRAINING.init(game, {
 		trainButtonEl: document.querySelector('.Train-button'),
-		predictFirstCityButtonEl: document.querySelector('.DeployFirstCity-button')
+		predictFirstCityButtonEl: document.querySelector('.DeployFirstCity-button'),
+		// predictSecondCityButtonEl: document.querySelector('.DeploySecondCity-button'),
+		// predictThirdCityButtonEl: document.querySelector('.DeployThirdCity-button'),
 	});
- 	VISUALIZE.init(game, document.querySelector('.Visualize'));
+ 	VISUALIZE.init(document.querySelector('.Visualize-first'), function() {
+ 		return game.firstCityDataset;
+ 	});
+ 	VISUALIZE.init(document.querySelector('.Visualize-second'), function() {
+ 		return game.secondCityDataset;
+ 	});
+ 	VISUALIZE.init(document.querySelector('.Visualize-third'), function() {
+ 		return game.thirdCityDataset;
+ 	});
 	FACETS.init(game, {
 		buttonEl: document.querySelector('.Visualize-facets-button'),
 		containerEl: document.querySelector('.Visualize-facets')
@@ -384,14 +396,19 @@
 	function busZoom() {
 		var el = document.querySelector('.Vehicle')
 		Velocity(el, { left: 800 }, 3000, "swing"); //move right
-		Velocity(el, { opacity: 0 }, { visibility: "hidden" }); //alternatively, display: "none" to disappear el
+		Velocity(el, { opacity: 0 }, { hidden: true }); //alternatively, display: "none" to disappear el
 	}
 
 	// maps
 	// maps to deploy to cities
 	MAP.init(document.querySelector('.Map.Map-Intro'), {
 		shouldRenderPolygons: true,
-		shouldRenderCamps: false
+		shouldRenderCamps: false,
+		classNamesForCities: {
+			first: 'animated slower heartBeat infinite',
+			second: 'animated slower heartBeat infinite',
+			third: 'animated slower heartBeat infinite'
+		}
 	});
 	MAP.init(document.querySelector('.Map.Map-Camps'), {
 		shouldRenderPolygons: false,
@@ -399,7 +416,12 @@
 	});
 	MAP.init(document.querySelector('.Map.Map-DeployFirst'), {
 		shouldRenderPolygons: true,
-		shouldRenderCamps: true
+		shouldRenderCamps: true,
+		classNamesForCities: {
+			first: 'animated fast heartBeat infinite',
+			second: 'faded',
+			third: 'faded'
+		}
 	});
 </script>
 </div>
