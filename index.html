@@ -194,7 +194,7 @@
 		<div class="Animation DeployAnimation">
 			<div class="Animation-instructions-container">
 				<div class="Animation-instructions">
-					<img src="play/img/play_icon_black.png"/ class="DeployFirstCity-button center">
+					<img src="play/img/play_icon_black.png"/ class="DeployButton center">
 					<div class="Animation-instructions-text">Deploy model on this summer's applications</div>
 				</div>
 			</div>
@@ -384,7 +384,7 @@
  	});
  	TRAINING.init(game, {
 		trainButtonEl: document.querySelector('.Train-button'),
-		predictFirstCityButtonEl: document.querySelector('.DeployFirstCity-button')
+		deployButtonEl: document.querySelector('.DeployButton')
 	});
  	VISUALIZE.init(document.querySelector('.Visualize-first'), function() {
  		return game.firstCityDataset;

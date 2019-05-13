@@ -1,5 +1,5 @@
 (function() {
-  function animate(cityDataset, predictFunc) {
+  function animate(cityDataset) {
       var containerEl = document.querySelector('.DeployAnimation');
 
       // render AI black box
@@ -22,7 +22,7 @@
       _.range(0, 20).forEach(function(n) {
         var dataPoint = shuffledDataset[n];
         setTimeout(function() {
-          var camp = predictFunc(dataPoint);
+          var camp = dataPoint.assignedCamp;
           var html = renderDataPoint(dataPoint, camp);
           var el = TRAINING_ANIMATION.slideInApplication(containerEl, html, timings);
           
