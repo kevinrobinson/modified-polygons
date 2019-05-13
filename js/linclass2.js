@@ -1,9 +1,10 @@
 (function() {
 
   // Create model
+  const CATEGORIES_COUNT = 6;
   const model = tf.sequential({
     layers: [
-      tf.layers.dense({inputShape: [9], units: 10, activation: 'relu'}),
+      tf.layers.dense({inputShape: [CATEGORIES_COUNT], units: 10, activation: 'relu'}),
       tf.layers.dense({units: 10, activation: 'relu'}),
       tf.layers.dense({units: 3, activation: 'softmax'}),
     ]
@@ -16,7 +17,7 @@
   });
 
   // warm-up
-  tf.tidy(() => model.predict(tf.zeros([1, 9])));
+  tf.tidy(() => model.predict(tf.zeros([1, CATEGORIES_COUNT])));
 
   // Train for 20 epochs with batch size 16
   function onBatchEnd(batch, logs) {

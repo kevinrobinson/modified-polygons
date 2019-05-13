@@ -254,6 +254,11 @@ span[cartoon]:hover{
 }
 
 
+.faded {
+	-webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(50%);
+}
+
 .Animation-application {
 	border: 1px solid #aaa;
 	border-radius: 3px;
@@ -268,8 +273,10 @@ span[cartoon]:hover{
 }
 
 .Animation-assigned {
-	font-weight: bold;
 	margin-top: 5px;
+	display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .Animation-black-box {
@@ -439,4 +446,18 @@ span[cartoon]:hover{
 
 .Map-camp {
 	display: inline-block;
+}
+
+.DeployFirstCity-button {
+	margin-top: 150px;
+}
+
+.Animation-deployed-to-camp {
+	display: none;
+}
+
+.DeployedToCamp .Animation-deployed-to-camp {
+	display: block !important;
+}{
+
 }

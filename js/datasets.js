@@ -86,11 +86,11 @@
         shapes.indexOf(dataPoint.shape),
         feelings.indexOf(dataPoint.feeling),
         dataPoint.music.interest,
-        dataPoint.music.experience,
+        // dataPoint.music.experience,
         dataPoint.math.interest,
-        dataPoint.math.experience,
-        dataPoint.outdoors.interest,
-        dataPoint.outdoors.experience
+        // dataPoint.math.experience,
+        dataPoint.outdoors.interest
+        // dataPoint.outdoors.experience
       ];
     });
   }
@@ -110,14 +110,19 @@
   // an application, completed or not
   function renderApplicationHtml(dataPoint, options = {}) {
     var imageUrl = imageUrlForDataPoint(dataPoint);
+    var campImgUrl = {
+      music: "play/img/sixteenth_notes.png",
+      outdoor: "play/img/campfire.png",
+      math: "play/img/math.png"
+    }[dataPoint.assignedCamp];
     var assignedCampHtml = (dataPoint.assignedCamp)
-      ? `<div class="Animation-assigned">went to ${dataPoint.assignedCamp}</div>`
+      ? `<div class="Animation-assigned">${dataPoint.assignedCamp} <img style="padding: 5px;" src="${campImgUrl}" width="32" height="32" /> camp in 2017</div>`
       : '';
-    return `<div class="Animation-application ${options.className || ''}">
+    return `<div class="Animation-application faded ${options.className || ''}">
       <div class="Animation-tiny"><img src="${imageUrl}" /></div>
-      <div class="Animation-tiny">math: <div class="Animation-gauge"><div style="width: ${dataPoint.math.interest*10}%"></div></div></div>
-      <div class="Animation-tiny">music: <div class="Animation-gauge"><div style="width: ${dataPoint.music.interest*10}%"></div></div></div>
-      <div class="Animation-tiny">outdoors: <div class="Animation-gauge"><div style="width: ${dataPoint.outdoors.interest*10}%"></div></div></div>
+      <div class="Animation-tiny">math <div class="Animation-gauge"><div style="width: ${dataPoint.math.interest*10}%"></div></div></div>
+      <div class="Animation-tiny">music <div class="Animation-gauge"><div style="width: ${dataPoint.music.interest*10}%"></div></div></div>
+      <div class="Animation-tiny">outdoors <div class="Animation-gauge"><div style="width: ${dataPoint.outdoors.interest*10}%"></div></div></div>
       ${assignedCampHtml}
     </div>`;
   }
