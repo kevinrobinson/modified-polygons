@@ -5,6 +5,7 @@
 
       // flatten
       var cityDataset = cityDatasetFn();
+      if (!cityDataset[0].assignedCamp) alert('Train your model first!');
       var facetsData = cityDataset.map(function(dataPoint) {
         return _.merge({}, dataPoint, {
           mathInterest: dataPoint.math.interest,
