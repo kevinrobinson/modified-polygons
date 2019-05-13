@@ -82,16 +82,35 @@
 
   function init(game, options = {}) {
     options.trainButtonEl.addEventListener('click', onTrainClick.bind(null, game));
-    options.predictFirstCityButtonEl.addEventListener('click', onDeployToCity.bind(null, game.firstCityDataset));
-    // options.predictSecondCityButtonEl.addEventListener('click', onDeployToCity.bind(null, game.secondCityDataset));
-    // options.predictThirdCityButtonEl.addEventListener('click', onDeployToCity.bind(null, game.thirdCityDataset));
+    options.deployButtonEl.addEventListener('click', onDeployToCity.bind(null, game));
   }
 
-  function onDeployToCity(cityDataset) {
-    // predict and animate
-    window.DEPLOY_ANIMATION.animate(cityDataset, predict);
+  function onDeployToCity(game) {
+    // make sure trained already
+    if (!game.training.trainedModel) {
+      alert('Train the model first!');
+      return;
+    }
 
-    // need animation and UI feedback
+    // predict for all cities and update datasets
+    assignCampTo(game.firstCityDataset);
+    assignCampTo(game.secondCityDataset);
+    assignCampTo(game.thirdCityDataset);
+
+    // animate as if it were doing all at once
+    var allDatasets = _.flatten([
+      game.firstCityDataset,
+      game.secondCityDataset,
+      game.thirdCityDataset,
+    ]);
+    console.log('allDatasets', allDatasets);
+    window.DEPLOY_ANIMATION.animate(allDatasets);
+  }
+
+  function assignCampTo(dataset) {
+    dataset.forEach(function(dataPoint) {
+      dataPoint.assignedCamp = predict(dataPoint);
+    });
   }
 
   // In deployment, make a new prediction and return the camp

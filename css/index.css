@@ -449,7 +449,6 @@ span[cartoon]:hover{
 }
 
 .DeployFirstCity-button {
-	margin-top: 150px;
 }
 
 .Animation-deployed-to-camp {
@@ -458,4 +457,9 @@ span[cartoon]:hover{
 
 .DeployedToCamp .Animation-deployed-to-camp {
 	display: block !important;
+}
+
+
+.DeployedToCamp {
+	transform: scale(0.65);
 }

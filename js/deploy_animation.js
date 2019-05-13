@@ -1,6 +1,5 @@
 (function() {
-  function animate(cityDataset, predictFunc) {
-      console.log(cityDataset);
+  function animate(cityDataset) {
       var containerEl = document.querySelector('.DeployAnimation');
 
       // render AI black box
@@ -16,21 +15,20 @@
 
       // feed in applications
       var timings = {
-        newEvery: 1500,
-        slideRight: 1000,
-        fadeOut: 500
+        newEvery: 1200,
+        slideRight: 600
       };
       var shuffledDataset = _.shuffle(cityDataset);
       _.range(0, 20).forEach(function(n) {
         var dataPoint = shuffledDataset[n];
         setTimeout(function() {
-          var camp = predictFunc(dataPoint);
+          var camp = dataPoint.assignedCamp;
           var html = renderDataPoint(dataPoint, camp);
           var el = TRAINING_ANIMATION.slideInApplication(containerEl, html, timings);
           
           var pos = {
-            music: 320 + (Math.random() * 10) - 5,
-            math: 170 + (Math.random() * 10) - 5,
+            music: 350 + (Math.random() * 10) - 5,
+            math: 200 + (Math.random() * 10) - 5,
             outdoor: 20 + (Math.random() * 10) - 5,
           }[camp]
           var left = 750 + (Math.random() * 10) - 5;
