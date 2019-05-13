@@ -4,8 +4,10 @@
   const CATEGORIES_COUNT = 6;
   const model = tf.sequential({
     layers: [
-      tf.layers.dense({inputShape: [CATEGORIES_COUNT], units: 10, activation: 'relu'}),
-      tf.layers.dense({units: 10, activation: 'relu'}),
+      tf.layers.dense({inputShape: [CATEGORIES_COUNT], units: 50, activation: 'relu'}),
+      tf.layers.dense({units: 50, activation: 'relu'}),
+      tf.layers.dense({units: 50, activation: 'relu'}),
+      tf.layers.dense({units: 30, activation: 'relu'}),
       tf.layers.dense({units: 3, activation: 'softmax'}),
     ]
   });
@@ -26,12 +28,13 @@
 
   function train() {
     // Get data
-    // TODO: when train button is clicked, these should be filled entirely (not just
+    // TODO: when `train` button is clicked, these should be filled entirely (not just
     // one example)
     // const trainData = window.lastDataset
     const trainX = tf.tensor(window.lastX)     // Must be shape [num_examples, 9]
     const trainY = tf.tensor(window.lastY)     // Must be shape [num_examples, 3] (one-hot)
-    console.log(trainX)
+    alert(43)
+    console.log('trainX', trainX)
     console.log(trainY)
 
     model.fit(trainX, trainY, {
@@ -55,6 +58,7 @@
     const trainData = game.historicalDataset;
     const trainX = tf.tensor(DATASETS.toX(trainData));     // Must be shape [num_examples, 9]
     const trainY = tf.tensor(DATASETS.toY(trainData));     // Must be shape [num_examples, 3] (one-hot)
+    console.log('trainX', trainX)
 
     // Start the animation
     const {onTrainingDone} = TRAINING_ANIMATION.animate(trainData, 1500);
